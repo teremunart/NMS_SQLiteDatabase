@@ -10,12 +10,15 @@ using System.Windows.Forms;
 
 namespace No_Mans_Sky_Planetbase {
     public partial class Form1 : Form {
+        private Form _form;
+        
         public Form1() {
             InitializeComponent();
         }
 
         private void add_planet_btn_Click(object sender, EventArgs e) {
-            throw new System.NotImplementedException();
+            _form = new AddPlanetForm();
+            _form.Show(this);
         }
 
         private void rem_planet_btn_Click(object sender, EventArgs e) {

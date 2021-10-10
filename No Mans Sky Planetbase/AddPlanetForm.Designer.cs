@@ -29,7 +29,7 @@ namespace No_Mans_Sky_Planetbase {
             this.PlanetTypeList = new System.Windows.Forms.ListBox();
             this.CheckBoxKorvax = new System.Windows.Forms.CheckBox();
             this.PushToDatabase = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.UrlBox = new System.Windows.Forms.TextBox();
             this.PreviewImage = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
             this.PlanetNameTitle = new System.Windows.Forms.Label();
@@ -39,6 +39,8 @@ namespace No_Mans_Sky_Planetbase {
             this.PlanetNameBox = new System.Windows.Forms.TextBox();
             this.DescriptionBox = new System.Windows.Forms.RichTextBox();
             this.CheckBoxVykeen = new System.Windows.Forms.CheckBox();
+            this.GalaxieTitle = new System.Windows.Forms.Label();
+            this.GalaxyList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // PlanetTypeList
@@ -72,13 +74,15 @@ namespace No_Mans_Sky_Planetbase {
             this.PushToDatabase.TabIndex = 6;
             this.PushToDatabase.Text = "Push Planet";
             this.PushToDatabase.UseVisualStyleBackColor = true;
+            this.PushToDatabase.Click += new System.EventHandler(this.PushToDatabase_Click);
             // 
-            // textBox3
+            // UrlBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(279, 165);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(148, 20);
-            this.textBox3.TabIndex = 7;
+            this.UrlBox.Location = new System.Drawing.Point(279, 165);
+            this.UrlBox.Name = "UrlBox";
+            this.UrlBox.Size = new System.Drawing.Size(148, 20);
+            this.UrlBox.TabIndex = 7;
+            this.UrlBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // PreviewImage
             // 
@@ -170,12 +174,34 @@ namespace No_Mans_Sky_Planetbase {
             this.CheckBoxVykeen.Text = "Vykeen";
             this.CheckBoxVykeen.UseVisualStyleBackColor = true;
             // 
+            // GalaxieTitle
+            // 
+            this.GalaxieTitle.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GalaxieTitle.Location = new System.Drawing.Point(12, 243);
+            this.GalaxieTitle.Name = "GalaxieTitle";
+            this.GalaxieTitle.Size = new System.Drawing.Size(87, 21);
+            this.GalaxieTitle.TabIndex = 19;
+            this.GalaxieTitle.Text = "Galaxy:";
+            // 
+            // GalaxyList
+            // 
+            this.GalaxyList.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GalaxyList.FormattingEnabled = true;
+            this.GalaxyList.ItemHeight = 18;
+            this.GalaxyList.Items.AddRange(new object[] { "Euclid", "Hilbert Dimension", "Calypso", "Hesperius Dimension", "Hyades", "Ickjamatew", "Budullangr", "Kikolgallr", "Eltiensleen", "Eissentam", "Elkupalos", "Aptarkaba", "Ontiniangp", "Odiwagiri", "Ogtialabi", "Muhacksonto", "Hitonskyer", "Rerasmutul", "Isdoraijung", "Doctinawyra", "Loychazinq", "Zukasizawa", "Ekwathore", "Yeberhahne", "Twerbetek", "Sivarates", "Eajerandal", "Aldukesci", "Wotyarogii", "Sudzerbal", "Maupenzhay", "Sugueziume", "Brogoweldian", "Ehbogdenbu", "Ijsenufryos", "Nipikulha", "Autsurabin", "Lusontrygiamh", "Rewmanawa", "Ethiophodhe", "Urastrykle", "Xobeurindj", "Oniijialdu", "Wucetosucc", "Ebyeloof", "Odyavanta", "Milekistri", "Waferganh", "Agnusopwit", "Teyaypilny", "Zalienkosm", "Ladgudiraf", "Mushonponte", "Amsentisz", "Fladiselm", "Laanawemb", "Ilkerloor", "Davanossi", "Ploehrliou", "Corpinyaya", "Leckandmeram", "Quulngais", "Nokokipsechl", "Rinblodesa", "Loydporpen", "Ibtrevskip", "Elkowaldb", "Heholhofsko", "Yebrilowisod", "Husalvangewi", "Ovna\'uesed", "Bahibusey", "Nuybeliaure", "Doshawchuc", "Ruckinarkh", "Thorettac", "Nuponoparau", "Moglaschil", "Uiweupose", "Nasmilete", "Ekdaluskin", "Hakapanasy", "Dimonimba", "Cajaccari", "Olonerovo", "Umlanswick", "Henayliszm", "Utzenmate", "Umirpaiya", "Paholiang", "Iaereznika", "Yudukagath", "Boealalosnj", "Yaevarcko", "Coellosipp", "Wayndohalou", "Smoduraykl", "Apmaneessu", "Hicanpaav", "Akvasanta", "Tuychelisaor", "Rivskimbe", "Daksanquix", "Kissonlin", "Aediabiel", "Ulosaginyik", "Roclaytonycar", "Kichiaroa", "Irceauffey", "Nudquathsenfe", "Getaizakaal", "Hansolmien", "Bloytisagra", "Ladsenlay", "Luyugoslasr", "Ubredhatk", "Cidoniana", "Jasinessa", "Torweierf", "Saffneckm", "Thnistner", "Dotusingg", "Luleukous", "Jelmandan", "Otimanaso", "Enjaxusanto", "Sezviktorew", "Zikehpm", "Bephembah", "Broomerrai", "Meximicka", "Venessika", "Gaiteseling", "Zosakasiro", "Drajayanes", "Ooibekuar", "Urckiansi", "Dozivadido", "Emiekereks", "Meykinunukur", "Kimycuristh", "Roansfien", "Isgarmeso", "Daitibeli", "Gucuttarik", "Enlaythie", "Drewweste", "Akbulkabi", "Homskiw", "Zavainlani", "Jewijkmas", "Itlhotagra", "Podalicess", "Hiviusauer", "Halsebenk", "Puikitoac", "Gaybakuaria", "Grbodubhe", "Rycempler", "Indjalala", "Fontenikk", "Pasycihelwhee", "Ikbaksmit", "Telicianses", "Oyleyzhan", "Uagerosat", "Impoxectin", "Twoodmand", "Hilfsesorbs", "Ezdaranit", "Wiensanshe", "Ewheelonc", "Litzmantufa", "Emarmatosi", "Mufimbomacvi", "Wongquarum", "Hapirajua", "Igbinduina", "Wepaitvas", "Sthatigudi", "Yekathsebehn", "Ebedeagurst", "Nolisonia", "Ulexovitab", "Iodhinxois", "Irroswitzs", "Bifredait", "Beiraghedwe", "Yeonatlak", "Cugnatachh", "Nozoryenki", "Ebralduri", "Evcickcandj", "Ziybosswin", "Heperclait", "Sugiuniam", "Aaseertush", "Uglyestemaa", "Horeroedsh", "Drundemiso", "Ityanianat", "Purneyrine", "Dokiessmat", "Nupiacheh", "Dihewsonj", "Rudrailhik", "Tweretnort", "Snatreetze", "Iwunddaracos", "Digarlewena", "Erquagsta", "Logovoloin", "Boyaghosganh", "Kuolungau", "Pehneldept", "Yevettiiqidcon", "Sahliacabru", "Noggalterpor", "Chmageaki", "Veticueca", "Vittesbursul", "Nootanore", "Innebdjerah", "Kisvarcini", "Cuzcogipper", "Pamanhermonsu", "Brotoghek", "Mibittara", "Huruahili", "Raldwicarn", "Ezdartlic", "Badesclema", "Isenkeyan", "Iadoitesu", "Yagrovoisi", "Ewcomechio", "Inunnunnoda", "Dischiutun", "Yuwarugha", "Ialmendra", "Reponudrle", "Rinjanagrbo", "Zeziceloh", "Oeileutasc", "Zicniijinis", "Dugnowarilda", "Neuxoisan", "Ilmenhorn", "Rukwatsuku", "Nepitzaspru", "Chcehoemig", "Haffneyrin", "Uliciawai", "Tuhgrespod", "Iousongola" });
+            this.GalaxyList.Location = new System.Drawing.Point(12, 267);
+            this.GalaxyList.Name = "GalaxyList";
+            this.GalaxyList.Size = new System.Drawing.Size(244, 22);
+            this.GalaxyList.TabIndex = 18;
+            // 
             // AddPlanetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(437, 450);
+            this.Controls.Add(this.GalaxieTitle);
+            this.Controls.Add(this.GalaxyList);
             this.Controls.Add(this.CheckBoxVykeen);
             this.Controls.Add(this.DescriptionBox);
             this.Controls.Add(this.PlanetNameBox);
@@ -185,7 +211,7 @@ namespace No_Mans_Sky_Planetbase {
             this.Controls.Add(this.PlanetNameTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PreviewImage);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.UrlBox);
             this.Controls.Add(this.PushToDatabase);
             this.Controls.Add(this.CheckBoxKorvax);
             this.Controls.Add(this.PlanetTypeList);
@@ -196,6 +222,12 @@ namespace No_Mans_Sky_Planetbase {
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.TextBox UrlBox;
+
+        private System.Windows.Forms.ListBox GalaxyList;
+
+        private System.Windows.Forms.Label GalaxieTitle;
 
         private System.Windows.Forms.CheckBox CheckBoxVykeen;
 
