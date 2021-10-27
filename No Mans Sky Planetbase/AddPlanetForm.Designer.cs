@@ -82,16 +82,19 @@ namespace No_Mans_Sky_Planetbase {
             this.UrlBox.Name = "UrlBox";
             this.UrlBox.Size = new System.Drawing.Size(148, 20);
             this.UrlBox.TabIndex = 7;
-            this.UrlBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.UrlBox.TextChanged += new System.EventHandler(this.UrlBox_TextChanged);
             // 
             // PreviewImage
             // 
             this.PreviewImage.AllowNavigation = false;
+            this.PreviewImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.PreviewImage.Location = new System.Drawing.Point(279, 14);
+            this.PreviewImage.Margin = new System.Windows.Forms.Padding(0);
+            this.PreviewImage.MaximumSize = new System.Drawing.Size(145, 145);
             this.PreviewImage.MinimumSize = new System.Drawing.Size(20, 20);
             this.PreviewImage.Name = "PreviewImage";
             this.PreviewImage.ScrollBarsEnabled = false;
-            this.PreviewImage.Size = new System.Drawing.Size(148, 145);
+            this.PreviewImage.Size = new System.Drawing.Size(145, 145);
             this.PreviewImage.TabIndex = 8;
             // 
             // label1
