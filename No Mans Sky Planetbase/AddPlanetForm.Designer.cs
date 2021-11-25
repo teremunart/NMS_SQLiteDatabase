@@ -31,7 +31,7 @@ namespace No_Mans_Sky_Planetbase {
             this.PushToDatabase = new System.Windows.Forms.Button();
             this.UrlBox = new System.Windows.Forms.TextBox();
             this.PreviewImage = new System.Windows.Forms.WebBrowser();
-            this.label1 = new System.Windows.Forms.Label();
+            this.MainFormTitle = new System.Windows.Forms.Label();
             this.PlanetNameTitle = new System.Windows.Forms.Label();
             this.DescriptionTitle = new System.Windows.Forms.Label();
             this.PlanetTypeTitle = new System.Windows.Forms.Label();
@@ -39,24 +39,26 @@ namespace No_Mans_Sky_Planetbase {
             this.PlanetNameBox = new System.Windows.Forms.TextBox();
             this.DescriptionBox = new System.Windows.Forms.RichTextBox();
             this.CheckBoxVykeen = new System.Windows.Forms.CheckBox();
-            this.GalaxieTitle = new System.Windows.Forms.Label();
-            this.GalaxyList = new System.Windows.Forms.ListBox();
+            this.SystemNameTitle = new System.Windows.Forms.Label();
+            this.SystemList = new System.Windows.Forms.ListBox();
+            this.LB_SystemName = new System.Windows.Forms.ListBox();
+            this.GNOS = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlanetTypeList
             // 
-            this.PlanetTypeList.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetTypeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlanetTypeList.FormattingEnabled = true;
-            this.PlanetTypeList.ItemHeight = 18;
+            this.PlanetTypeList.ItemHeight = 20;
             this.PlanetTypeList.Items.AddRange(new object[] { "Lush", "Barren", "Dead", "Exotic", "Mega Exotic", "Scorched", "Frozen", "Toxic", "Irradiated", "Marsh", "Volcanic" });
             this.PlanetTypeList.Location = new System.Drawing.Point(12, 214);
             this.PlanetTypeList.Name = "PlanetTypeList";
-            this.PlanetTypeList.Size = new System.Drawing.Size(244, 22);
+            this.PlanetTypeList.Size = new System.Drawing.Size(244, 84);
             this.PlanetTypeList.TabIndex = 0;
             // 
             // CheckBoxKorvax
             // 
-            this.CheckBoxKorvax.Font = new System.Drawing.Font("NMS GeoSans", 12F);
+            this.CheckBoxKorvax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CheckBoxKorvax.Location = new System.Drawing.Point(279, 214);
             this.CheckBoxKorvax.Name = "CheckBoxKorvax";
             this.CheckBoxKorvax.Size = new System.Drawing.Size(92, 22);
@@ -66,11 +68,11 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // PushToDatabase
             // 
-            this.PushToDatabase.Font = new System.Drawing.Font("NMS GeoSans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PushToDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PushToDatabase.ForeColor = System.Drawing.Color.Crimson;
-            this.PushToDatabase.Location = new System.Drawing.Point(279, 396);
+            this.PushToDatabase.Location = new System.Drawing.Point(514, 396);
             this.PushToDatabase.Name = "PushToDatabase";
-            this.PushToDatabase.Size = new System.Drawing.Size(127, 42);
+            this.PushToDatabase.Size = new System.Drawing.Size(128, 42);
             this.PushToDatabase.TabIndex = 6;
             this.PushToDatabase.Text = "Push Planet";
             this.PushToDatabase.UseVisualStyleBackColor = true;
@@ -78,9 +80,9 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // UrlBox
             // 
-            this.UrlBox.Location = new System.Drawing.Point(279, 165);
+            this.UrlBox.Location = new System.Drawing.Point(500, 164);
             this.UrlBox.Name = "UrlBox";
-            this.UrlBox.Size = new System.Drawing.Size(148, 20);
+            this.UrlBox.Size = new System.Drawing.Size(145, 20);
             this.UrlBox.TabIndex = 7;
             this.UrlBox.TextChanged += new System.EventHandler(this.UrlBox_TextChanged);
             // 
@@ -88,7 +90,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.PreviewImage.AllowNavigation = false;
             this.PreviewImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.PreviewImage.Location = new System.Drawing.Point(279, 14);
+            this.PreviewImage.Location = new System.Drawing.Point(500, 9);
             this.PreviewImage.Margin = new System.Windows.Forms.Padding(0);
             this.PreviewImage.MaximumSize = new System.Drawing.Size(145, 145);
             this.PreviewImage.MinimumSize = new System.Drawing.Size(20, 20);
@@ -97,18 +99,18 @@ namespace No_Mans_Sky_Planetbase {
             this.PreviewImage.Size = new System.Drawing.Size(145, 145);
             this.PreviewImage.TabIndex = 8;
             // 
-            // label1
+            // MainFormTitle
             // 
-            this.label1.Font = new System.Drawing.Font("NMS GeoSans", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 33);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Adding a planet";
+            this.MainFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainFormTitle.Location = new System.Drawing.Point(12, 12);
+            this.MainFormTitle.Name = "MainFormTitle";
+            this.MainFormTitle.Size = new System.Drawing.Size(187, 33);
+            this.MainFormTitle.TabIndex = 9;
+            this.MainFormTitle.Text = "Adding a planet";
             // 
             // PlanetNameTitle
             // 
-            this.PlanetNameTitle.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlanetNameTitle.Location = new System.Drawing.Point(12, 45);
             this.PlanetNameTitle.Name = "PlanetNameTitle";
             this.PlanetNameTitle.Size = new System.Drawing.Size(87, 21);
@@ -117,7 +119,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // DescriptionTitle
             // 
-            this.DescriptionTitle.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescriptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescriptionTitle.Location = new System.Drawing.Point(12, 66);
             this.DescriptionTitle.Name = "DescriptionTitle";
             this.DescriptionTitle.Size = new System.Drawing.Size(87, 21);
@@ -126,7 +128,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // PlanetTypeTitle
             // 
-            this.PlanetTypeTitle.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetTypeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlanetTypeTitle.Location = new System.Drawing.Point(12, 190);
             this.PlanetTypeTitle.Name = "PlanetTypeTitle";
             this.PlanetTypeTitle.Size = new System.Drawing.Size(87, 21);
@@ -135,7 +137,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // CheckBoxGek
             // 
-            this.CheckBoxGek.Font = new System.Drawing.Font("NMS GeoSans", 12F);
+            this.CheckBoxGek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CheckBoxGek.Location = new System.Drawing.Point(279, 242);
             this.CheckBoxGek.Name = "CheckBoxGek";
             this.CheckBoxGek.Size = new System.Drawing.Size(92, 22);
@@ -147,7 +149,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.PlanetNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
             this.PlanetNameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PlanetNameBox.Font = new System.Drawing.Font("NMS GeoSans", 12F);
+            this.PlanetNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.PlanetNameBox.ForeColor = System.Drawing.Color.White;
             this.PlanetNameBox.Location = new System.Drawing.Point(105, 45);
             this.PlanetNameBox.Name = "PlanetNameBox";
@@ -159,7 +161,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
             this.DescriptionBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DescriptionBox.Font = new System.Drawing.Font("NMS GeoSans", 10F);
+            this.DescriptionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.DescriptionBox.ForeColor = System.Drawing.Color.White;
             this.DescriptionBox.Location = new System.Drawing.Point(105, 66);
             this.DescriptionBox.Name = "DescriptionBox";
@@ -169,7 +171,7 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // CheckBoxVykeen
             // 
-            this.CheckBoxVykeen.Font = new System.Drawing.Font("NMS GeoSans", 12F);
+            this.CheckBoxVykeen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CheckBoxVykeen.Location = new System.Drawing.Point(279, 270);
             this.CheckBoxVykeen.Name = "CheckBoxVykeen";
             this.CheckBoxVykeen.Size = new System.Drawing.Size(92, 22);
@@ -177,34 +179,55 @@ namespace No_Mans_Sky_Planetbase {
             this.CheckBoxVykeen.Text = "Vykeen";
             this.CheckBoxVykeen.UseVisualStyleBackColor = true;
             // 
-            // GalaxieTitle
+            // SystemNameTitle
             // 
-            this.GalaxieTitle.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GalaxieTitle.Location = new System.Drawing.Point(12, 243);
-            this.GalaxieTitle.Name = "GalaxieTitle";
-            this.GalaxieTitle.Size = new System.Drawing.Size(87, 21);
-            this.GalaxieTitle.TabIndex = 19;
-            this.GalaxieTitle.Text = "Galaxy:";
+            this.SystemNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SystemNameTitle.Location = new System.Drawing.Point(12, 313);
+            this.SystemNameTitle.Name = "SystemNameTitle";
+            this.SystemNameTitle.Size = new System.Drawing.Size(112, 21);
+            this.SystemNameTitle.TabIndex = 19;
+            this.SystemNameTitle.Text = "SystemName:";
             // 
-            // GalaxyList
+            // SystemList
             // 
-            this.GalaxyList.Font = new System.Drawing.Font("NMS GeoSans", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GalaxyList.FormattingEnabled = true;
-            this.GalaxyList.ItemHeight = 18;
-            this.GalaxyList.Items.AddRange(new object[] { "Euclid", "Hilbert Dimension", "Calypso", "Hesperius Dimension", "Hyades", "Ickjamatew", "Budullangr", "Kikolgallr", "Eltiensleen", "Eissentam", "Elkupalos", "Aptarkaba", "Ontiniangp", "Odiwagiri", "Ogtialabi", "Muhacksonto", "Hitonskyer", "Rerasmutul", "Isdoraijung", "Doctinawyra", "Loychazinq", "Zukasizawa", "Ekwathore", "Yeberhahne", "Twerbetek", "Sivarates", "Eajerandal", "Aldukesci", "Wotyarogii", "Sudzerbal", "Maupenzhay", "Sugueziume", "Brogoweldian", "Ehbogdenbu", "Ijsenufryos", "Nipikulha", "Autsurabin", "Lusontrygiamh", "Rewmanawa", "Ethiophodhe", "Urastrykle", "Xobeurindj", "Oniijialdu", "Wucetosucc", "Ebyeloof", "Odyavanta", "Milekistri", "Waferganh", "Agnusopwit", "Teyaypilny", "Zalienkosm", "Ladgudiraf", "Mushonponte", "Amsentisz", "Fladiselm", "Laanawemb", "Ilkerloor", "Davanossi", "Ploehrliou", "Corpinyaya", "Leckandmeram", "Quulngais", "Nokokipsechl", "Rinblodesa", "Loydporpen", "Ibtrevskip", "Elkowaldb", "Heholhofsko", "Yebrilowisod", "Husalvangewi", "Ovna\'uesed", "Bahibusey", "Nuybeliaure", "Doshawchuc", "Ruckinarkh", "Thorettac", "Nuponoparau", "Moglaschil", "Uiweupose", "Nasmilete", "Ekdaluskin", "Hakapanasy", "Dimonimba", "Cajaccari", "Olonerovo", "Umlanswick", "Henayliszm", "Utzenmate", "Umirpaiya", "Paholiang", "Iaereznika", "Yudukagath", "Boealalosnj", "Yaevarcko", "Coellosipp", "Wayndohalou", "Smoduraykl", "Apmaneessu", "Hicanpaav", "Akvasanta", "Tuychelisaor", "Rivskimbe", "Daksanquix", "Kissonlin", "Aediabiel", "Ulosaginyik", "Roclaytonycar", "Kichiaroa", "Irceauffey", "Nudquathsenfe", "Getaizakaal", "Hansolmien", "Bloytisagra", "Ladsenlay", "Luyugoslasr", "Ubredhatk", "Cidoniana", "Jasinessa", "Torweierf", "Saffneckm", "Thnistner", "Dotusingg", "Luleukous", "Jelmandan", "Otimanaso", "Enjaxusanto", "Sezviktorew", "Zikehpm", "Bephembah", "Broomerrai", "Meximicka", "Venessika", "Gaiteseling", "Zosakasiro", "Drajayanes", "Ooibekuar", "Urckiansi", "Dozivadido", "Emiekereks", "Meykinunukur", "Kimycuristh", "Roansfien", "Isgarmeso", "Daitibeli", "Gucuttarik", "Enlaythie", "Drewweste", "Akbulkabi", "Homskiw", "Zavainlani", "Jewijkmas", "Itlhotagra", "Podalicess", "Hiviusauer", "Halsebenk", "Puikitoac", "Gaybakuaria", "Grbodubhe", "Rycempler", "Indjalala", "Fontenikk", "Pasycihelwhee", "Ikbaksmit", "Telicianses", "Oyleyzhan", "Uagerosat", "Impoxectin", "Twoodmand", "Hilfsesorbs", "Ezdaranit", "Wiensanshe", "Ewheelonc", "Litzmantufa", "Emarmatosi", "Mufimbomacvi", "Wongquarum", "Hapirajua", "Igbinduina", "Wepaitvas", "Sthatigudi", "Yekathsebehn", "Ebedeagurst", "Nolisonia", "Ulexovitab", "Iodhinxois", "Irroswitzs", "Bifredait", "Beiraghedwe", "Yeonatlak", "Cugnatachh", "Nozoryenki", "Ebralduri", "Evcickcandj", "Ziybosswin", "Heperclait", "Sugiuniam", "Aaseertush", "Uglyestemaa", "Horeroedsh", "Drundemiso", "Ityanianat", "Purneyrine", "Dokiessmat", "Nupiacheh", "Dihewsonj", "Rudrailhik", "Tweretnort", "Snatreetze", "Iwunddaracos", "Digarlewena", "Erquagsta", "Logovoloin", "Boyaghosganh", "Kuolungau", "Pehneldept", "Yevettiiqidcon", "Sahliacabru", "Noggalterpor", "Chmageaki", "Veticueca", "Vittesbursul", "Nootanore", "Innebdjerah", "Kisvarcini", "Cuzcogipper", "Pamanhermonsu", "Brotoghek", "Mibittara", "Huruahili", "Raldwicarn", "Ezdartlic", "Badesclema", "Isenkeyan", "Iadoitesu", "Yagrovoisi", "Ewcomechio", "Inunnunnoda", "Dischiutun", "Yuwarugha", "Ialmendra", "Reponudrle", "Rinjanagrbo", "Zeziceloh", "Oeileutasc", "Zicniijinis", "Dugnowarilda", "Neuxoisan", "Ilmenhorn", "Rukwatsuku", "Nepitzaspru", "Chcehoemig", "Haffneyrin", "Uliciawai", "Tuhgrespod", "Iousongola" });
-            this.GalaxyList.Location = new System.Drawing.Point(12, 267);
-            this.GalaxyList.Name = "GalaxyList";
-            this.GalaxyList.Size = new System.Drawing.Size(244, 22);
-            this.GalaxyList.TabIndex = 18;
+            this.SystemList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SystemList.FormattingEnabled = true;
+            this.SystemList.ItemHeight = 20;
+            this.SystemList.Location = new System.Drawing.Point(12, 337);
+            this.SystemList.Name = "SystemList";
+            this.SystemList.Size = new System.Drawing.Size(244, 84);
+            this.SystemList.TabIndex = 18;
+            // 
+            // LB_SystemName
+            // 
+            this.LB_SystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_SystemName.FormattingEnabled = true;
+            this.LB_SystemName.ItemHeight = 20;
+            this.LB_SystemName.Location = new System.Drawing.Point(12, 337);
+            this.LB_SystemName.Name = "LB_SystemName";
+            this.LB_SystemName.Size = new System.Drawing.Size(244, 84);
+            this.LB_SystemName.TabIndex = 18;
+            this.LB_SystemName.SelectedIndexChanged += new System.EventHandler(this.LB_SystemName_SelectedIndexChanged);
+            // 
+            // GNOS
+            // 
+            this.GNOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GNOS.Location = new System.Drawing.Point(279, 377);
+            this.GNOS.Name = "GNOS";
+            this.GNOS.Size = new System.Drawing.Size(229, 44);
+            this.GNOS.TabIndex = 21;
+            this.GNOS.Text = "Galaxy: None system selected";
             // 
             // AddPlanetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-            this.ClientSize = new System.Drawing.Size(437, 450);
-            this.Controls.Add(this.GalaxieTitle);
-            this.Controls.Add(this.GalaxyList);
+            this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.GNOS);
+            this.Controls.Add(this.LB_SystemName);
+            this.Controls.Add(this.SystemNameTitle);
+            this.Controls.Add(this.SystemList);
             this.Controls.Add(this.CheckBoxVykeen);
             this.Controls.Add(this.DescriptionBox);
             this.Controls.Add(this.PlanetNameBox);
@@ -212,7 +235,7 @@ namespace No_Mans_Sky_Planetbase {
             this.Controls.Add(this.PlanetTypeTitle);
             this.Controls.Add(this.DescriptionTitle);
             this.Controls.Add(this.PlanetNameTitle);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MainFormTitle);
             this.Controls.Add(this.PreviewImage);
             this.Controls.Add(this.UrlBox);
             this.Controls.Add(this.PushToDatabase);
@@ -226,11 +249,14 @@ namespace No_Mans_Sky_Planetbase {
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Label GNOS;
+        private System.Windows.Forms.ListBox LB_SystemName;
+
         private System.Windows.Forms.TextBox UrlBox;
 
-        private System.Windows.Forms.ListBox GalaxyList;
+        private System.Windows.Forms.ListBox SystemList;
 
-        private System.Windows.Forms.Label GalaxieTitle;
+        private System.Windows.Forms.Label SystemNameTitle;
 
         private System.Windows.Forms.CheckBox CheckBoxVykeen;
 
@@ -247,20 +273,9 @@ namespace No_Mans_Sky_Planetbase {
         private System.Windows.Forms.Label DescriptionTitle;
         private System.Windows.Forms.ListBox PlanetTypeList;
         private System.Windows.Forms.Label PlanetTypeTitle;
-
-        private System.Windows.Forms.Label label2;
-
+        
         private System.Windows.Forms.WebBrowser PreviewImage;
-        private System.Windows.Forms.Label label1;
-
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-
-        private System.Windows.Forms.ListBox listBox1;
-
+        private System.Windows.Forms.Label MainFormTitle;
         #endregion
     }
 }

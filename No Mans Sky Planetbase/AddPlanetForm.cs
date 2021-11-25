@@ -1,26 +1,46 @@
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 
 namespace No_Mans_Sky_Planetbase {
-    
-    //Database Format: Planetname VARCHAR, Description VARCHAR, Galaxy VARCHAR, Planetype VARCHAR, Species VARCHAR
-    
+
     public partial class AddPlanetForm : Form {
+        public int?[] SystemId;
+        public int IndexItem;
+
         static string relative_filename = @"..\..\database\database.db";
-        string db_path = Path.GetFullPath(relative_filename);
+        readonly string _dbPath = Path.GetFullPath(relative_filename);
         
-        private string _planetname;
-        private string _description;
-        private string _planettype;
-        private string _species;
-        private string _galaxy;
         public string Url = "about:blank";
 
+        
+        /*
+         * AddPlanetForm Constructor
+         */ 
         public AddPlanetForm() {
             InitializeComponent();
+
+            IndexItem = 0;
+            using (SQLiteConnection connection = new SQLiteConnection(new Utils().GetConnectionString())) {
+                connection.Open();
+                string sql = @"SELECT SystemID, SystemName, NMS_System.GalaxyID, Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE Galaxy.GalaxyID = NMS_System.GalaxyID;";
+
+                using (SQLiteCommand command = new SQLiteCommand(sql, connection)) {
+                    SQLiteDataReader rdr = command.ExecuteReader();
+                    if (rdr.HasRows) {
+                        while (rdr.Read()) {
+                            LB_SystemList.Items.Add("[" + rdr.GetInt32(0) + "] " + rdr.GetString(1) + " --> " + rdr.GetString(3));
+                        }
+                    } else {
+                        LB_SystemList.Items.Add("No systems found.");
+                    }
+                    rdr.Close();
+                }
+            }
         }
         
         private void UrlBox_TextChanged(object sender, EventArgs e) {
@@ -40,39 +60,41 @@ namespace No_Mans_Sky_Planetbase {
         }
 
         private void PushToDatabase_Click(object sender, EventArgs e) {
-            _planetname = PlanetNameBox.Text;
-            _description = DescriptionBox.Text;
+            /*_description = DescriptionBox.Text;
             _galaxy = GalaxyList.Text;
             _planettype = PlanetTypeList.Text;
             if (CheckBoxGek.Checked) _species = "Gek";
             if (CheckBoxKorvax.Checked) _species = "Korvax";
             if (CheckBoxVykeen.Checked) _species = "Vykeen";
             //_url = textBox3.Text;
-            SaveInDatabase();
+            */SaveInDatabase();
         }
 
         private void SaveInDatabase() {
-            if (!File.Exists(db_path)) {
+            if (!File.Exists(_dbPath)) {
                 return;
             }
 
-            string connectionstring = @"Data Source="+db_path+"; Version = 3;";
+            string connectionstring = @"Data Source="+_dbPath+"; Version = 3;";
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionstring)) {
+            using (SQLiteConnection connection = new SQLiteConnection(new Utils().GetConnectionString())) {
                 connection.Open();
-
-                string sql = @"INSERT INTO Planets (Planetname, Description, Galaxy, Planetype , Species) VALUES (@Planetname, @Description, @Galaxy, @Planettype, @Species)";
-
+                string sql = @"INSERT INTO Planet (PlanetName, PlanetType, PlanetDesc, SystemID, OresType, PlanetImageurl) VALUES (@PlanetName, @PlanetType, @PlanetDesc, @SystemID, @OresType, @PlanetImageurl)";
+                
                 using (SQLiteCommand command = new SQLiteCommand(sql, connection)) {
-                    command.Parameters.AddWithValue("Planetname", _planetname);
+                    /*command.Parameters.AddWithValue("Planetname", _planetname);
                     command.Parameters.AddWithValue("Description", _description);
                     command.Parameters.AddWithValue("Galaxy", _galaxy);
                     command.Parameters.AddWithValue("Planettype", _planettype);
                     command.Parameters.AddWithValue("Species", _species);
-                    //command.Parameters.AddWithValue("ImgUrl", _url);
+                    //command.Parameters.AddWithValue("ImgUrl", _url);*/
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        private void LB_SystemName_SelectedIndexChanged(object sender, EventArgs e) {
+            throw new System.NotImplementedException();
         }
     }
 }
