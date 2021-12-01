@@ -42,37 +42,36 @@ namespace No_Mans_Sky_Planetbase {
             this.SystemNameTitle = new System.Windows.Forms.Label();
             this.SystemList = new System.Windows.Forms.ListBox();
             this.GNOS = new System.Windows.Forms.Label();
-            this.btn_queue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PlanetTypeList
             // 
-            this.PlanetTypeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetTypeList.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlanetTypeList.FormattingEnabled = true;
             this.PlanetTypeList.ItemHeight = 20;
             this.PlanetTypeList.Items.AddRange(new object[] { "Lush", "Barren", "Dead", "Exotic", "Mega Exotic", "Scorched", "Frozen", "Toxic", "Irradiated", "Marsh", "Volcanic" });
-            this.PlanetTypeList.Location = new System.Drawing.Point(12, 214);
+            this.PlanetTypeList.Location = new System.Drawing.Point(12, 230);
             this.PlanetTypeList.Name = "PlanetTypeList";
-            this.PlanetTypeList.Size = new System.Drawing.Size(244, 84);
+            this.PlanetTypeList.Size = new System.Drawing.Size(244, 144);
             this.PlanetTypeList.TabIndex = 0;
             // 
             // CheckBoxKorvax
             // 
-            this.CheckBoxKorvax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CheckBoxKorvax.Location = new System.Drawing.Point(279, 214);
+            this.CheckBoxKorvax.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F);
+            this.CheckBoxKorvax.Location = new System.Drawing.Point(662, 100);
             this.CheckBoxKorvax.Name = "CheckBoxKorvax";
-            this.CheckBoxKorvax.Size = new System.Drawing.Size(92, 22);
+            this.CheckBoxKorvax.Size = new System.Drawing.Size(92, 24);
             this.CheckBoxKorvax.TabIndex = 3;
             this.CheckBoxKorvax.Text = "Korvax";
             this.CheckBoxKorvax.UseVisualStyleBackColor = true;
             // 
             // PushToDatabase
             // 
-            this.PushToDatabase.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PushToDatabase.Font = new System.Drawing.Font("NMS Futura Pro Book", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PushToDatabase.ForeColor = System.Drawing.Color.Crimson;
-            this.PushToDatabase.Location = new System.Drawing.Point(514, 396);
+            this.PushToDatabase.Location = new System.Drawing.Point(12, 589);
             this.PushToDatabase.Name = "PushToDatabase";
-            this.PushToDatabase.Size = new System.Drawing.Size(128, 42);
+            this.PushToDatabase.Size = new System.Drawing.Size(244, 45);
             this.PushToDatabase.TabIndex = 6;
             this.PushToDatabase.Text = "Push";
             this.PushToDatabase.UseVisualStyleBackColor = true;
@@ -80,9 +79,9 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // UrlBox
             // 
-            this.UrlBox.Location = new System.Drawing.Point(500, 164);
+            this.UrlBox.Location = new System.Drawing.Point(500, 158);
             this.UrlBox.Name = "UrlBox";
-            this.UrlBox.Size = new System.Drawing.Size(145, 20);
+            this.UrlBox.Size = new System.Drawing.Size(145, 22);
             this.UrlBox.TabIndex = 7;
             this.UrlBox.TextChanged += new System.EventHandler(this.UrlBox_TextChanged);
             // 
@@ -90,10 +89,10 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.PreviewImage.AllowNavigation = false;
             this.PreviewImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.PreviewImage.Location = new System.Drawing.Point(500, 9);
+            this.PreviewImage.Location = new System.Drawing.Point(500, 10);
             this.PreviewImage.Margin = new System.Windows.Forms.Padding(0);
             this.PreviewImage.MaximumSize = new System.Drawing.Size(145, 145);
-            this.PreviewImage.MinimumSize = new System.Drawing.Size(20, 20);
+            this.PreviewImage.MinimumSize = new System.Drawing.Size(20, 22);
             this.PreviewImage.Name = "PreviewImage";
             this.PreviewImage.ScrollBarsEnabled = false;
             this.PreviewImage.Size = new System.Drawing.Size(145, 145);
@@ -101,46 +100,46 @@ namespace No_Mans_Sky_Planetbase {
             // 
             // MainFormTitle
             // 
-            this.MainFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainFormTitle.Location = new System.Drawing.Point(12, 12);
+            this.MainFormTitle.Font = new System.Drawing.Font("NMS Futura Pro Book", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainFormTitle.Location = new System.Drawing.Point(12, 13);
             this.MainFormTitle.Name = "MainFormTitle";
-            this.MainFormTitle.Size = new System.Drawing.Size(187, 33);
+            this.MainFormTitle.Size = new System.Drawing.Size(187, 36);
             this.MainFormTitle.TabIndex = 9;
             this.MainFormTitle.Text = "Adding a planet";
             // 
             // PlanetNameTitle
             // 
-            this.PlanetNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlanetNameTitle.Location = new System.Drawing.Point(12, 45);
+            this.PlanetNameTitle.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetNameTitle.Location = new System.Drawing.Point(12, 48);
             this.PlanetNameTitle.Name = "PlanetNameTitle";
-            this.PlanetNameTitle.Size = new System.Drawing.Size(87, 21);
+            this.PlanetNameTitle.Size = new System.Drawing.Size(87, 23);
             this.PlanetNameTitle.TabIndex = 10;
             this.PlanetNameTitle.Text = "Planet name:";
             // 
             // DescriptionTitle
             // 
-            this.DescriptionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DescriptionTitle.Location = new System.Drawing.Point(12, 66);
+            this.DescriptionTitle.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DescriptionTitle.Location = new System.Drawing.Point(12, 71);
             this.DescriptionTitle.Name = "DescriptionTitle";
-            this.DescriptionTitle.Size = new System.Drawing.Size(87, 21);
+            this.DescriptionTitle.Size = new System.Drawing.Size(87, 23);
             this.DescriptionTitle.TabIndex = 11;
             this.DescriptionTitle.Text = "Description:";
             // 
             // PlanetTypeTitle
             // 
-            this.PlanetTypeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlanetTypeTitle.Location = new System.Drawing.Point(12, 190);
+            this.PlanetTypeTitle.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlanetTypeTitle.Location = new System.Drawing.Point(12, 205);
             this.PlanetTypeTitle.Name = "PlanetTypeTitle";
-            this.PlanetTypeTitle.Size = new System.Drawing.Size(87, 21);
+            this.PlanetTypeTitle.Size = new System.Drawing.Size(87, 23);
             this.PlanetTypeTitle.TabIndex = 12;
             this.PlanetTypeTitle.Text = "Planettype:";
             // 
             // CheckBoxGek
             // 
-            this.CheckBoxGek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CheckBoxGek.Location = new System.Drawing.Point(279, 242);
+            this.CheckBoxGek.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F);
+            this.CheckBoxGek.Location = new System.Drawing.Point(662, 131);
             this.CheckBoxGek.Name = "CheckBoxGek";
-            this.CheckBoxGek.Size = new System.Drawing.Size(92, 22);
+            this.CheckBoxGek.Size = new System.Drawing.Size(92, 24);
             this.CheckBoxGek.TabIndex = 14;
             this.CheckBoxGek.Text = "Gek";
             this.CheckBoxGek.UseVisualStyleBackColor = true;
@@ -149,11 +148,11 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.PlanetNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
             this.PlanetNameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PlanetNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.PlanetNameBox.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F);
             this.PlanetNameBox.ForeColor = System.Drawing.Color.White;
-            this.PlanetNameBox.Location = new System.Drawing.Point(105, 45);
+            this.PlanetNameBox.Location = new System.Drawing.Point(105, 48);
             this.PlanetNameBox.Name = "PlanetNameBox";
-            this.PlanetNameBox.Size = new System.Drawing.Size(151, 19);
+            this.PlanetNameBox.Size = new System.Drawing.Size(151, 21);
             this.PlanetNameBox.TabIndex = 15;
             this.PlanetNameBox.Text = "Earth";
             // 
@@ -161,72 +160,59 @@ namespace No_Mans_Sky_Planetbase {
             // 
             this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
             this.DescriptionBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DescriptionBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.DescriptionBox.Font = new System.Drawing.Font("NMS Futura Pro Book", 10F);
             this.DescriptionBox.ForeColor = System.Drawing.Color.White;
-            this.DescriptionBox.Location = new System.Drawing.Point(105, 66);
+            this.DescriptionBox.Location = new System.Drawing.Point(105, 71);
             this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(150, 118);
+            this.DescriptionBox.Size = new System.Drawing.Size(389, 127);
             this.DescriptionBox.TabIndex = 16;
             this.DescriptionBox.Text = "Earth is the third planet from the Sun and the only astronomical object known to " + "harbour and support life. About 29.2% of Earth\'s surface is land consisting of c" + "ontinents and islands.";
             // 
             // CheckBoxVykeen
             // 
-            this.CheckBoxVykeen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CheckBoxVykeen.Location = new System.Drawing.Point(279, 270);
+            this.CheckBoxVykeen.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F);
+            this.CheckBoxVykeen.Location = new System.Drawing.Point(662, 161);
             this.CheckBoxVykeen.Name = "CheckBoxVykeen";
-            this.CheckBoxVykeen.Size = new System.Drawing.Size(92, 22);
+            this.CheckBoxVykeen.Size = new System.Drawing.Size(92, 24);
             this.CheckBoxVykeen.TabIndex = 17;
             this.CheckBoxVykeen.Text = "Vykeen";
             this.CheckBoxVykeen.UseVisualStyleBackColor = true;
             // 
             // SystemNameTitle
             // 
-            this.SystemNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SystemNameTitle.Location = new System.Drawing.Point(12, 313);
+            this.SystemNameTitle.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SystemNameTitle.Location = new System.Drawing.Point(12, 386);
             this.SystemNameTitle.Name = "SystemNameTitle";
-            this.SystemNameTitle.Size = new System.Drawing.Size(112, 21);
+            this.SystemNameTitle.Size = new System.Drawing.Size(112, 23);
             this.SystemNameTitle.TabIndex = 19;
             this.SystemNameTitle.Text = "SystemName:";
             // 
             // SystemList
             // 
-            this.SystemList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SystemList.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SystemList.FormattingEnabled = true;
             this.SystemList.ItemHeight = 20;
-            this.SystemList.Location = new System.Drawing.Point(12, 337);
+            this.SystemList.Location = new System.Drawing.Point(12, 412);
             this.SystemList.Name = "SystemList";
-            this.SystemList.Size = new System.Drawing.Size(244, 84);
+            this.SystemList.Size = new System.Drawing.Size(244, 164);
             this.SystemList.TabIndex = 18;
             this.SystemList.SelectedIndexChanged += new System.EventHandler(this.SystemList_SelectedIndexChanged);
             // 
             // GNOS
             // 
-            this.GNOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GNOS.Location = new System.Drawing.Point(279, 377);
+            this.GNOS.Font = new System.Drawing.Font("NMS Futura Pro Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GNOS.Location = new System.Drawing.Point(265, 205);
             this.GNOS.Name = "GNOS";
-            this.GNOS.Size = new System.Drawing.Size(229, 44);
+            this.GNOS.Size = new System.Drawing.Size(229, 23);
             this.GNOS.TabIndex = 21;
             this.GNOS.Text = "Galaxy: None system selected";
             // 
-            // btn_queue
-            // 
-            this.btn_queue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_queue.ForeColor = System.Drawing.Color.Crimson;
-            this.btn_queue.Location = new System.Drawing.Point(514, 348);
-            this.btn_queue.Name = "btn_queue";
-            this.btn_queue.Size = new System.Drawing.Size(128, 42);
-            this.btn_queue.TabIndex = 22;
-            this.btn_queue.Text = "Queue";
-            this.btn_queue.UseVisualStyleBackColor = true;
-            this.btn_queue.Click += new System.EventHandler(this.QueuePlanet_Click);
-            // 
             // AddPlanetForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-            this.ClientSize = new System.Drawing.Size(654, 450);
-            this.Controls.Add(this.btn_queue);
+            this.ClientSize = new System.Drawing.Size(982, 646);
             this.Controls.Add(this.GNOS);
             this.Controls.Add(this.SystemNameTitle);
             this.Controls.Add(this.SystemList);
@@ -243,6 +229,7 @@ namespace No_Mans_Sky_Planetbase {
             this.Controls.Add(this.PushToDatabase);
             this.Controls.Add(this.CheckBoxKorvax);
             this.Controls.Add(this.PlanetTypeList);
+            this.Font = new System.Drawing.Font("NMS Futura Pro Book", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddPlanetForm";
@@ -250,8 +237,6 @@ namespace No_Mans_Sky_Planetbase {
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        private System.Windows.Forms.Button btn_queue;
 
         private System.Windows.Forms.Label GNOS;
 

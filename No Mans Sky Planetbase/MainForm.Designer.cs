@@ -26,20 +26,9 @@ namespace No_Mans_Sky_Planetbase {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.Loading = new System.Windows.Forms.ProgressBar();
             this.CmdBox = new System.Windows.Forms.TextBox();
+            this.Button_AddPlanet = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Loading
-            // 
-            this.Loading.ForeColor = System.Drawing.Color.Red;
-            this.Loading.Location = new System.Drawing.Point(0, 509);
-            this.Loading.MarqueeAnimationSpeed = 200;
-            this.Loading.Name = "Loading";
-            this.Loading.Size = new System.Drawing.Size(937, 12);
-            this.Loading.Step = 1;
-            this.Loading.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.Loading.TabIndex = 1;
             // 
             // CmdBox
             // 
@@ -54,17 +43,28 @@ namespace No_Mans_Sky_Planetbase {
             this.CmdBox.Text = "Try /addplanet Commander!";
             this.CmdBox.TextChanged += new System.EventHandler(this.CmdBox_TextChanged);
             // 
+            // Button_AddPlanet
+            // 
+            this.Button_AddPlanet.ForeColor = System.Drawing.Color.Black;
+            this.Button_AddPlanet.Location = new System.Drawing.Point(12, 39);
+            this.Button_AddPlanet.Name = "Button_AddPlanet";
+            this.Button_AddPlanet.Size = new System.Drawing.Size(166, 32);
+            this.Button_AddPlanet.TabIndex = 3;
+            this.Button_AddPlanet.Text = "Add Planet";
+            this.Button_AddPlanet.UseVisualStyleBackColor = true;
+            this.Button_AddPlanet.Click += new System.EventHandler(this.Button_AddPlanet_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(932, 543);
+            this.Controls.Add(this.Button_AddPlanet);
             this.Controls.Add(this.CmdBox);
-            this.Controls.Add(this.Loading);
-            this.Font = new System.Drawing.Font("NMS GeoSans", 10F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -74,8 +74,11 @@ namespace No_Mans_Sky_Planetbase {
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button Button_AddPlanet;
+
+        private System.Windows.Forms.Button button1;
+
         private System.Windows.Forms.TextBox CmdBox;
-        private System.Windows.Forms.ProgressBar Loading;
 
         #endregion
     }

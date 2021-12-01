@@ -1,3 +1,5 @@
+#pragma warning disable 649
+
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,25 +21,19 @@ namespace No_Mans_Sky_Planetbase {
     }
     
     public partial class AddPlanetForm : Form {
-        private PlanetDataEntry[] Entries;
+        private static PlanetDataEntry[] Entries;                                                                                
         private int Queue = 0;
+        // ReSharper disable once FieldCanBeMadeReadOnly.Local
+        string _dbPath = Path.GetFullPath(@"..\..\database\database.db");
+        private string Url = "about:blank";
         
-        static string relative_filename = @"..\..\database\database.db";
-        readonly string _dbPath = Path.GetFullPath(relative_filename);
-        
-        public string Url = "about:blank";
-        
-        /*
-         * AddPlanetForm Constructor
-         */ 
+        //AddPlanetForm Constructor
         public AddPlanetForm() {
             InitializeComponent();
-            FillSystemList(); // Fill the list with Items
+            FillSystemList(); //Fills the list with Items
         }
-
-        //
+        
         //  F U N C T I O N S
-        //
         private void FillSystemList() {
             SQLiteDataReader reader = GetDatabase(
                 @"SELECT SystemID, SystemName, NMS_System.GalaxyID, Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE Galaxy.GalaxyID = NMS_System.GalaxyID;"
@@ -64,7 +60,7 @@ namespace No_Mans_Sky_Planetbase {
             return reader;
         }
         
-        private void SaveInDatabase() { //FIXME: Adapt to new Database
+        private void SaveInDatabase() { 
             if (!File.Exists(_dbPath)) {
                 return;
             }
@@ -85,14 +81,10 @@ namespace No_Mans_Sky_Planetbase {
                     command.ExecuteNonQuery();
                 } 
             }
-        }
+        } //TODO: Adapt to new Database
 
         private bool IsFieldMissing() {
-            if (PlanetNameBox.Text == "" && DescriptionBox.Text == "")
-                return true;
-            else 
-                return false;
-            
+            return PlanetNameBox.Text == "" && DescriptionBox.Text == "";
         }
         
         //
@@ -134,22 +126,20 @@ namespace No_Mans_Sky_Planetbase {
         }
 
         private void QueuePlanet_Click(object sender, EventArgs e) {
-            if (!IsFieldMissing()) {
-                Entries[Queue] = new PlanetDataEntry();
-                
-                Entries[Queue].KPlanetName      = PlanetNameBox.Text;
-                Entries[Queue].KPlanetDesc      = DescriptionBox.Text;
-                Entries[Queue].KPlanetType      = PlanetTypeList.SelectedItem.ToString();
-                Entries[Queue].KSystemId        = SystemList.SelectedIndex;
-                //Entries[Queue].KOresType; = //TODO: Add field in form.
-                //Entries[Queue].IsMoon;    = //TODO: Add CheckBox in form and add it to the database.
-                Entries[Queue].KPlanetImageUrl  = UrlBox.Text;
+            
+            if (IsFieldMissing()) return;
 
-                Form form = new QueuedPlanet(Entries[Queue]);
-                form.Show(this);
-                
-                Queue++;
-            }
+            Entries[Queue] = new PlanetDataEntry {
+                KPlanetName = PlanetNameBox.Text,
+                KPlanetDesc = DescriptionBox.Text,
+                KPlanetType = PlanetTypeList.SelectedItem.ToString(),
+                KSystemId = SystemList.SelectedIndex,
+                KPlanetImageUrl = UrlBox.Text
+                //Entries[Queue].IsMoon;    = //TODO: Add CheckBox in form and add it to the database.
+                //Entries[Queue].KOresType; = //TODO: Add field in form.
+            };
+
+            Queue++;
         }
     }
 }
