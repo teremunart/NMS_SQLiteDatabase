@@ -41,8 +41,8 @@ namespace No_Mans_Sky_Planetbase {
             this.CheckBoxVykeen = new System.Windows.Forms.CheckBox();
             this.SystemNameTitle = new System.Windows.Forms.Label();
             this.SystemList = new System.Windows.Forms.ListBox();
-            this.LB_SystemName = new System.Windows.Forms.ListBox();
             this.GNOS = new System.Windows.Forms.Label();
+            this.btn_queue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PlanetTypeList
@@ -74,7 +74,7 @@ namespace No_Mans_Sky_Planetbase {
             this.PushToDatabase.Name = "PushToDatabase";
             this.PushToDatabase.Size = new System.Drawing.Size(128, 42);
             this.PushToDatabase.TabIndex = 6;
-            this.PushToDatabase.Text = "Push Planet";
+            this.PushToDatabase.Text = "Push";
             this.PushToDatabase.UseVisualStyleBackColor = true;
             this.PushToDatabase.Click += new System.EventHandler(this.PushToDatabase_Click);
             // 
@@ -197,17 +197,7 @@ namespace No_Mans_Sky_Planetbase {
             this.SystemList.Name = "SystemList";
             this.SystemList.Size = new System.Drawing.Size(244, 84);
             this.SystemList.TabIndex = 18;
-            // 
-            // LB_SystemName
-            // 
-            this.LB_SystemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_SystemName.FormattingEnabled = true;
-            this.LB_SystemName.ItemHeight = 20;
-            this.LB_SystemName.Location = new System.Drawing.Point(12, 337);
-            this.LB_SystemName.Name = "LB_SystemName";
-            this.LB_SystemName.Size = new System.Drawing.Size(244, 84);
-            this.LB_SystemName.TabIndex = 18;
-            this.LB_SystemName.SelectedIndexChanged += new System.EventHandler(this.LB_SystemName_SelectedIndexChanged);
+            this.SystemList.SelectedIndexChanged += new System.EventHandler(this.SystemList_SelectedIndexChanged);
             // 
             // GNOS
             // 
@@ -218,14 +208,26 @@ namespace No_Mans_Sky_Planetbase {
             this.GNOS.TabIndex = 21;
             this.GNOS.Text = "Galaxy: None system selected";
             // 
+            // btn_queue
+            // 
+            this.btn_queue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_queue.ForeColor = System.Drawing.Color.Crimson;
+            this.btn_queue.Location = new System.Drawing.Point(514, 348);
+            this.btn_queue.Name = "btn_queue";
+            this.btn_queue.Size = new System.Drawing.Size(128, 42);
+            this.btn_queue.TabIndex = 22;
+            this.btn_queue.Text = "Queue";
+            this.btn_queue.UseVisualStyleBackColor = true;
+            this.btn_queue.Click += new System.EventHandler(this.QueuePlanet_Click);
+            // 
             // AddPlanetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
             this.ClientSize = new System.Drawing.Size(654, 450);
+            this.Controls.Add(this.btn_queue);
             this.Controls.Add(this.GNOS);
-            this.Controls.Add(this.LB_SystemName);
             this.Controls.Add(this.SystemNameTitle);
             this.Controls.Add(this.SystemList);
             this.Controls.Add(this.CheckBoxVykeen);
@@ -249,8 +251,9 @@ namespace No_Mans_Sky_Planetbase {
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button btn_queue;
+
         private System.Windows.Forms.Label GNOS;
-        private System.Windows.Forms.ListBox LB_SystemName;
 
         private System.Windows.Forms.TextBox UrlBox;
 

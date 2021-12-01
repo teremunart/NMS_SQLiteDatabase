@@ -4,73 +4,67 @@ using System.Data;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace No_Mans_Sky_Planetbase {
 
+    //TODO: If this class works, I should move it to an own class, to keep stuff tidy.
+    public class PlanetDataEntry { 
+        public string   KPlanetName     { get; set; }
+        public string   KPlanetDesc     { get; set; }
+        public string   KPlanetType     { get; set; }
+        public int      KSystemId       { get; set; }
+        public string   KOresType       { get; set; }
+        public int      KIsMoon         { get; set; }
+        public string   KPlanetImageUrl { get; set; }
+    }
+    
     public partial class AddPlanetForm : Form {
-        public int?[] SystemId;
-        public int IndexItem;
-
+        private PlanetDataEntry[] Entries;
+        private int Queue = 0;
+        
         static string relative_filename = @"..\..\database\database.db";
         readonly string _dbPath = Path.GetFullPath(relative_filename);
         
         public string Url = "about:blank";
-
         
         /*
          * AddPlanetForm Constructor
          */ 
         public AddPlanetForm() {
             InitializeComponent();
+            FillSystemList(); // Fill the list with Items
+        }
 
-            IndexItem = 0;
-            using (SQLiteConnection connection = new SQLiteConnection(new Utils().GetConnectionString())) {
-                connection.Open();
-                string sql = @"SELECT SystemID, SystemName, NMS_System.GalaxyID, Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE Galaxy.GalaxyID = NMS_System.GalaxyID;";
+        //
+        //  F U N C T I O N S
+        //
+        private void FillSystemList() {
+            SQLiteDataReader reader = GetDatabase(
+                @"SELECT SystemID, SystemName, NMS_System.GalaxyID, Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE Galaxy.GalaxyID = NMS_System.GalaxyID;"
+                    );
 
-                using (SQLiteCommand command = new SQLiteCommand(sql, connection)) {
-                    SQLiteDataReader rdr = command.ExecuteReader();
-                    if (rdr.HasRows) {
-                        while (rdr.Read()) {
-                            LB_SystemList.Items.Add("[" + rdr.GetInt32(0) + "] " + rdr.GetString(1) + " --> " + rdr.GetString(3));
-                        }
-                    } else {
-                        LB_SystemList.Items.Add("No systems found.");
-                    }
-                    rdr.Close();
-                }
-            }
+            if(reader != null)
+                while (reader.Read()) 
+                    SystemList.Items.Add(reader.GetString(1));
+
+            if (reader != null) reader.Close(); 
+        }
+
+        private SQLiteDataReader GetDatabase(string sql) {
+            SQLiteDataReader reader = null;
+            
+            SQLiteConnection connection = new SQLiteConnection(new Utils().GetConnectionString()); 
+            connection.Open();
+            
+            SQLiteCommand command = new SQLiteCommand(sql, connection);
+            SQLiteDataReader rdr = command.ExecuteReader();
+            
+            if (rdr.HasRows) reader = rdr;
+
+            return reader;
         }
         
-        private void UrlBox_TextChanged(object sender, EventArgs e) {
-            Url = UrlBox.Text;
-            
-            if(String.IsNullOrEmpty(Url)) return;
-            if(Url.Equals("about:blank")) return;
-            try {
-                PreviewImage.DocumentText =
-                    "<html style=\"border:none\">" +
-                        "<body scroll=\"no\" style=\"padding:0px;margin:0px;\">" +
-                            "<img src=\"" + Url + "\" alt=\"\" width=\"145\" heights=\"145\">" +
-                        "</body>" +
-                    "</html>";
-            } catch (UriFormatException) {
-            }
-        }
-
-        private void PushToDatabase_Click(object sender, EventArgs e) {
-            /*_description = DescriptionBox.Text;
-            _galaxy = GalaxyList.Text;
-            _planettype = PlanetTypeList.Text;
-            if (CheckBoxGek.Checked) _species = "Gek";
-            if (CheckBoxKorvax.Checked) _species = "Korvax";
-            if (CheckBoxVykeen.Checked) _species = "Vykeen";
-            //_url = textBox3.Text;
-            */SaveInDatabase();
-        }
-
-        private void SaveInDatabase() {
+        private void SaveInDatabase() { //FIXME: Adapt to new Database
             if (!File.Exists(_dbPath)) {
                 return;
             }
@@ -89,12 +83,73 @@ namespace No_Mans_Sky_Planetbase {
                     command.Parameters.AddWithValue("Species", _species);
                     //command.Parameters.AddWithValue("ImgUrl", _url);*/
                     command.ExecuteNonQuery();
-                }
+                } 
             }
         }
 
-        private void LB_SystemName_SelectedIndexChanged(object sender, EventArgs e) {
-            throw new System.NotImplementedException();
+        private bool IsFieldMissing() {
+            if (PlanetNameBox.Text == "" && DescriptionBox.Text == "")
+                return true;
+            else 
+                return false;
+            
+        }
+        
+        //
+        //  E V E N T S
+        //
+        private void UrlBox_TextChanged(object sender, EventArgs e) {
+            Url = UrlBox.Text;
+            
+            if(String.IsNullOrEmpty(Url)) return;
+            if(Url.Equals("about:blank")) return;
+            try {
+                PreviewImage.DocumentText =
+                    "<html style=\"border:none\">" +
+                        "<body scroll=\"no\" style=\"padding:0px;margin:0px;\">" +
+                            "<img src=\"" + Url + "\" alt=\"\" width=\"145\" heights=\"145\">" +
+                        "</body>" +
+                    "</html>";
+            } catch (UriFormatException) {
+            }
+        }
+
+        private void PushToDatabase_Click(object sender, EventArgs e) {
+            SaveInDatabase();
+        }
+
+        private void SystemList_SelectedIndexChanged(object sender, EventArgs e) {
+            SQLiteDataReader reader = GetDatabase(
+                @"SELECT SystemName,Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyID=Galaxy.GalaxyID;"
+            );
+            
+            if (reader != null) {
+                while (reader.Read()) {
+                    if(SystemList.SelectedItem.ToString() == reader.GetString(0))
+                        GNOS.Text = @"Galaxy: " + reader.GetString(1);
+                }
+            } else {
+                GNOS.Text = @"Galaxy: Empty";
+            }
+        }
+
+        private void QueuePlanet_Click(object sender, EventArgs e) {
+            if (!IsFieldMissing()) {
+                Entries[Queue] = new PlanetDataEntry();
+                
+                Entries[Queue].KPlanetName      = PlanetNameBox.Text;
+                Entries[Queue].KPlanetDesc      = DescriptionBox.Text;
+                Entries[Queue].KPlanetType      = PlanetTypeList.SelectedItem.ToString();
+                Entries[Queue].KSystemId        = SystemList.SelectedIndex;
+                //Entries[Queue].KOresType; = //TODO: Add field in form.
+                //Entries[Queue].IsMoon;    = //TODO: Add CheckBox in form and add it to the database.
+                Entries[Queue].KPlanetImageUrl  = UrlBox.Text;
+
+                Form form = new QueuedPlanet(Entries[Queue]);
+                form.Show(this);
+                
+                Queue++;
+            }
         }
     }
 }
