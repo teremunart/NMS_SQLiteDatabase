@@ -27,6 +27,16 @@ namespace No_Mans_Sky_Planetbase {
         string _dbPath = Path.GetFullPath(@"..\..\database\database.db");
         private string Url = "about:blank";
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         //AddPlanetForm Constructor
         public AddPlanetForm() {
             InitializeComponent();
