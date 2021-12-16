@@ -4,10 +4,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
 
-// TODO: Add Case for "about:blank"
 // TODO: Add Moon & Planet count
 // TODO: Add Color Translator for Galaxy (might be useful for design)
 // TODO: Add all the other tabs
+// TODO: Handle NullException for not visible elements in lists
 
 namespace No_Mans_Sky_Planetbase {
     public partial class MainForm : Form {
@@ -47,7 +47,7 @@ namespace No_Mans_Sky_Planetbase {
         private SQLiteDataReader GetDatabase(string sql) {
             SQLiteDataReader reader = null;
             
-            SQLiteConnection connection = new SQLiteConnection(new Utils().GetConnectionString()); 
+            SQLiteConnection connection = new SQLiteConnection(new Utils().CONNECTIONSTRING); 
             connection.Open();
             
             SQLiteCommand command = new SQLiteCommand(sql, connection);
@@ -90,7 +90,8 @@ namespace No_Mans_Sky_Planetbase {
             
             if(reader != null)
                 while (reader.Read()) {
-                    PlanetaryData sP = new PlanetaryData { // Object Init
+                    // Save Data in object
+                    PlanetaryData sP = new PlanetaryData {
                         PlanetID = reader.GetInt32(0),
                         PlanetName = reader.GetString(1),
                         PlanetType = reader.GetString(2),
@@ -112,6 +113,8 @@ namespace No_Mans_Sky_Planetbase {
                         }
                         catch (UriFormatException) {
                         }
+                    } else {
+                        Tab1ImageOfPlanet.Visible = false;
                     }
 
                     Tab1PlanetNameLabel.Text = sP.PlanetName;
