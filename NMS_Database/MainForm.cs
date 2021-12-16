@@ -101,22 +101,17 @@ namespace NMS_Database {
                         OreTypes = reader.GetString(5),
                         PlanetImage = reader.GetString(6)
                     };
-/*
+
                     if (sP.PlanetImage != "about:blank") {
                         Tab1ImageOfPlanet.Visible = true;
                         try {
-                            Tab1ImageOfPlanet.DocumentText =
-                                "<html style=\"border:none\">" +
-                                "<body scroll=\"no\" style=\"padding:0px;margin:0px;\">" +
-                                "<img src=\"" + sP.PlanetImage + "\" alt=\"\" width=\"100%\" heights=\"100%\">" +
-                                "</body>" +
-                                "</html>";
-                        }
-                        catch (UriFormatException) {
+                            Tab1ImageOfPlanet.ImageLocation = sP.PlanetImage;
+                        } catch (Exception exception) {
+                            // ignored
                         }
                     } else {
                         Tab1ImageOfPlanet.Visible = false;
-                    }*/
+                    }
 
                     Tab1PlanetNameLabel.Text = sP.PlanetName;
                     Tab1DescriptionLabel.Text = sP.PlanetDescription;

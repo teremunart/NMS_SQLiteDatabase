@@ -33,6 +33,7 @@ namespace NMS_Database {
             this.Tab1LabelGalaxy = new System.Windows.Forms.Label();
             this.Tab1GalaxyList = new System.Windows.Forms.ListBox();
             this.SystemInspector = new System.Windows.Forms.Panel();
+            this.Tab1ImageOfPlanet = new System.Windows.Forms.PictureBox();
             this.Tab1DescriptionLabel = new System.Windows.Forms.Label();
             this.Tab1PlanetNameLabel = new System.Windows.Forms.Label();
             this.Tab1SystemInfoLabel = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@ namespace NMS_Database {
             this.tabpanel.SuspendLayout();
             this.inspectsystem.SuspendLayout();
             this.SystemInspector.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Tab1ImageOfPlanet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,13 +60,15 @@ namespace NMS_Database {
             this.tabpanel.Name = "tabpanel";
             this.tabpanel.Padding = new System.Drawing.Point(0, 0);
             this.tabpanel.SelectedIndex = 0;
-            this.tabpanel.Size = new System.Drawing.Size(835, 577);
+            this.tabpanel.Size = new System.Drawing.Size(835, 505);
             this.tabpanel.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabpanel.TabIndex = 0;
             // 
             // inspectsystem
             // 
             this.inspectsystem.BackColor = System.Drawing.Color.Black;
+            this.inspectsystem.BackgroundImage = global::NMS_Database.Properties.Resources.nms_bg_1;
+            this.inspectsystem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.inspectsystem.Controls.Add(this.Tab1LabelSystem);
             this.inspectsystem.Controls.Add(this.Tab1SystemList);
             this.inspectsystem.Controls.Add(this.Tab1LabelGalaxy);
@@ -74,7 +78,7 @@ namespace NMS_Database {
             this.inspectsystem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.inspectsystem.Name = "inspectsystem";
             this.inspectsystem.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.inspectsystem.Size = new System.Drawing.Size(827, 544);
+            this.inspectsystem.Size = new System.Drawing.Size(827, 472);
             this.inspectsystem.TabIndex = 0;
             this.inspectsystem.Text = "Inspect System";
             // 
@@ -129,6 +133,7 @@ namespace NMS_Database {
             // SystemInspector
             // 
             this.SystemInspector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SystemInspector.Controls.Add(this.Tab1ImageOfPlanet);
             this.SystemInspector.Controls.Add(this.Tab1DescriptionLabel);
             this.SystemInspector.Controls.Add(this.Tab1PlanetNameLabel);
             this.SystemInspector.Controls.Add(this.Tab1SystemInfoLabel);
@@ -138,11 +143,22 @@ namespace NMS_Database {
             this.SystemInspector.Location = new System.Drawing.Point(174, 6);
             this.SystemInspector.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SystemInspector.Name = "SystemInspector";
-            this.SystemInspector.Size = new System.Drawing.Size(646, 530);
+            this.SystemInspector.Size = new System.Drawing.Size(646, 460);
             this.SystemInspector.TabIndex = 0;
+            // 
+            // Tab1ImageOfPlanet
+            // 
+            this.Tab1ImageOfPlanet.BackColor = System.Drawing.Color.Transparent;
+            this.Tab1ImageOfPlanet.Location = new System.Drawing.Point(199, 44);
+            this.Tab1ImageOfPlanet.Name = "Tab1ImageOfPlanet";
+            this.Tab1ImageOfPlanet.Size = new System.Drawing.Size(198, 114);
+            this.Tab1ImageOfPlanet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Tab1ImageOfPlanet.TabIndex = 7;
+            this.Tab1ImageOfPlanet.TabStop = false;
             // 
             // Tab1DescriptionLabel
             // 
+            this.Tab1DescriptionLabel.BackColor = System.Drawing.Color.Transparent;
             this.Tab1DescriptionLabel.Location = new System.Drawing.Point(199, 217);
             this.Tab1DescriptionLabel.Name = "Tab1DescriptionLabel";
             this.Tab1DescriptionLabel.Size = new System.Drawing.Size(227, 112);
@@ -150,6 +166,7 @@ namespace NMS_Database {
             // 
             // Tab1PlanetNameLabel
             // 
+            this.Tab1PlanetNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.Tab1PlanetNameLabel.Font = new System.Drawing.Font("NMS Futura Pro Book", 16F);
             this.Tab1PlanetNameLabel.Location = new System.Drawing.Point(199, 179);
             this.Tab1PlanetNameLabel.Name = "Tab1PlanetNameLabel";
@@ -158,6 +175,7 @@ namespace NMS_Database {
             // 
             // Tab1SystemInfoLabel
             // 
+            this.Tab1SystemInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.Tab1SystemInfoLabel.Location = new System.Drawing.Point(12, 234);
             this.Tab1SystemInfoLabel.Name = "Tab1SystemInfoLabel";
             this.Tab1SystemInfoLabel.Size = new System.Drawing.Size(163, 118);
@@ -216,7 +234,7 @@ namespace NMS_Database {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(835, 577);
+            this.ClientSize = new System.Drawing.Size(835, 505);
             this.Controls.Add(this.tabpanel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("NMS Futura Pro Book", 10F);
@@ -230,9 +248,14 @@ namespace NMS_Database {
             this.tabpanel.ResumeLayout(false);
             this.inspectsystem.ResumeLayout(false);
             this.SystemInspector.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Tab1ImageOfPlanet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.PictureBox Tab1ImageOfPlanet;
+
+        private System.Windows.Forms.PictureBox False;
 
         private System.Windows.Forms.Label Tab1DescriptionLabel;
 
