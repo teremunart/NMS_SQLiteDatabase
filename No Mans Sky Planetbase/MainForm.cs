@@ -1,10 +1,13 @@
 using System;
 using System.Data.SQLite;
-using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
 
-/*@"SELECT SystemID, SystemName, NMS_System.GalaxyID, Galaxy.GalaxyName FROM NMS_System, Galaxy WHERE Galaxy.GalaxyID = NMS_System.GalaxyID;"*/
+// TODO: Add Case for "about:blank"
+// TODO: Add Moon & Planet count
+// TODO: Add Color Translator for Galaxy (might be useful for design)
+// TODO: Add all the other tabs
 
 namespace No_Mans_Sky_Planetbase {
     public partial class MainForm : Form {
@@ -38,7 +41,7 @@ namespace No_Mans_Sky_Planetbase {
                         case "t1_planet": Tab1PlanetList.Items.Add(reader.GetString(0)); break;
                     }
 
-            if (reader != null) reader.Close(); 
+            reader?.Close();
         }
         
         private SQLiteDataReader GetDatabase(string sql) {
@@ -55,12 +58,14 @@ namespace No_Mans_Sky_Planetbase {
             return reader;
         }
 
-        // EVENTS
+        // EVENTS TAB1
         private void Tab1GalaxyList_SelectedIndexChanged(object sender, EventArgs e) {
-            ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyID=\"{Tab1GalaxyList.SelectedIndex}\";");        }
+            ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyID=\"{Tab1GalaxyList.SelectedIndex}\";");        
+        }
 
         private void Tab1SystemList_SelectedIndexChanged(object sender, EventArgs e) {
             Tab1SelectedSystemLabel.Text = Tab1SystemList.SelectedItem.ToString().ToUpper();
+            Tab1PlanetList.Items.Clear();
 
             SQLiteDataReader reader = GetDatabase($"SELECT SpeciesType FROM NMS_System WHERE SystemName=\"{Tab1SystemList.SelectedItem}\";");
             string species = null;
@@ -84,9 +89,64 @@ namespace No_Mans_Sky_Planetbase {
             SQLiteDataReader reader = GetDatabase($"SELECT * FROM Planet WHERE PlanetName=\"{Tab1PlanetList.SelectedItem}\";");
             
             if(reader != null)
-                while (reader.Read());
-                    //TODO: Add Code here
-            if (reader != null) reader.Close(); 
+                while (reader.Read()) {
+                    PlanetaryData sP = new PlanetaryData { // Object Init
+                        PlanetID = reader.GetInt32(0),
+                        PlanetName = reader.GetString(1),
+                        PlanetType = reader.GetString(2),
+                        PlanetDescription = reader.GetString(3),
+                        SystemID = reader.GetInt32(4),
+                        OreTypes = reader.GetString(5),
+                        PlanetImage = reader.GetString(6)
+                    };
+
+                    if (sP.PlanetImage != "about:blank") {
+                        Tab1ImageOfPlanet.Visible = true;
+                        try {
+                            Tab1ImageOfPlanet.DocumentText =
+                                "<html style=\"border:none\">" +
+                                "<body scroll=\"no\" style=\"padding:0px;margin:0px;\">" +
+                                "<img src=\"" + sP.PlanetImage + "\" alt=\"\" width=\"100%\" heights=\"100%\">" +
+                                "</body>" +
+                                "</html>";
+                        }
+                        catch (UriFormatException) {
+                        }
+                    }
+
+                    Tab1PlanetNameLabel.Text = sP.PlanetName;
+                    Tab1DescriptionLabel.Text = sP.PlanetDescription;
+                }
+            reader?.Close();
         }
     }
+}
+
+[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")] // Not used message annoyed me...
+public class PlanetaryData {
+    public    int PlanetID          { get; set; }
+    public string PlanetImage       { get; set; }
+    public string PlanetName        { get; set; }
+    public string PlanetDescription { get; set; }
+    public string PlanetType        { get; set; }         
+    public    int SystemID          { get; set; }           
+    public string OreTypes          { get; set; }
+}
+
+public class SystemData {
+    public    int SystemID          { get; set; }
+    public string SystemName        { get; set; }
+    public    int GalaxyID          { get; set; }
+    public    int PlanetCount       { get; set; }
+    public    int MoonCount         { get; set; }
+    public string Species           { get; set; }         
+    public string Economy           { get; set; }           
+    public string Conflict          { get; set; }
+}
+
+public class GalaxyData {
+    public    int GalaxyID          { get; set; }
+    public string GalaxyName        { get; set; }
+    public string GalaxyType        { get; set; }         
+    public string GalaxyColor       { get; set; }
 }

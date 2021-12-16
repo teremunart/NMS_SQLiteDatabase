@@ -33,6 +33,10 @@ namespace No_Mans_Sky_Planetbase {
             this.Tab1LabelGalaxy = new System.Windows.Forms.Label();
             this.Tab1GalaxyList = new System.Windows.Forms.ListBox();
             this.SystemInspector = new System.Windows.Forms.Panel();
+            this.Tab1DescriptionLabel = new System.Windows.Forms.Label();
+            this.Tab1PlanetNameLabel = new System.Windows.Forms.Label();
+            this.Tab1SystemInfoLabel = new System.Windows.Forms.Label();
+            this.Tab1ImageOfPlanet = new System.Windows.Forms.WebBrowser();
             this.Tab1ShowSpecies = new System.Windows.Forms.PictureBox();
             this.Tab1PlanetList = new System.Windows.Forms.ListBox();
             this.Tab1SelectedSystemLabel = new System.Windows.Forms.Label();
@@ -128,6 +132,10 @@ namespace No_Mans_Sky_Planetbase {
             // SystemInspector
             // 
             this.SystemInspector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SystemInspector.Controls.Add(this.Tab1DescriptionLabel);
+            this.SystemInspector.Controls.Add(this.Tab1PlanetNameLabel);
+            this.SystemInspector.Controls.Add(this.Tab1SystemInfoLabel);
+            this.SystemInspector.Controls.Add(this.Tab1ImageOfPlanet);
             this.SystemInspector.Controls.Add(this.Tab1ShowSpecies);
             this.SystemInspector.Controls.Add(this.Tab1PlanetList);
             this.SystemInspector.Controls.Add(this.Tab1SelectedSystemLabel);
@@ -136,6 +144,39 @@ namespace No_Mans_Sky_Planetbase {
             this.SystemInspector.Name = "SystemInspector";
             this.SystemInspector.Size = new System.Drawing.Size(646, 530);
             this.SystemInspector.TabIndex = 0;
+            // 
+            // Tab1DescriptionLabel
+            // 
+            this.Tab1DescriptionLabel.Location = new System.Drawing.Point(199, 217);
+            this.Tab1DescriptionLabel.Name = "Tab1DescriptionLabel";
+            this.Tab1DescriptionLabel.Size = new System.Drawing.Size(227, 112);
+            this.Tab1DescriptionLabel.TabIndex = 6;
+            // 
+            // Tab1PlanetNameLabel
+            // 
+            this.Tab1PlanetNameLabel.Font = new System.Drawing.Font("NMS Futura Pro Book", 16F);
+            this.Tab1PlanetNameLabel.Location = new System.Drawing.Point(199, 179);
+            this.Tab1PlanetNameLabel.Name = "Tab1PlanetNameLabel";
+            this.Tab1PlanetNameLabel.Size = new System.Drawing.Size(227, 32);
+            this.Tab1PlanetNameLabel.TabIndex = 5;
+            // 
+            // Tab1SystemInfoLabel
+            // 
+            this.Tab1SystemInfoLabel.Location = new System.Drawing.Point(12, 234);
+            this.Tab1SystemInfoLabel.Name = "Tab1SystemInfoLabel";
+            this.Tab1SystemInfoLabel.Size = new System.Drawing.Size(163, 118);
+            this.Tab1SystemInfoLabel.TabIndex = 4;
+            this.Tab1SystemInfoLabel.Text = "Planets: 0\r\nMoons: 0\r\nConflict: None\r\nEconmy: None";
+            // 
+            // Tab1ImageOfPlanet
+            // 
+            this.Tab1ImageOfPlanet.Location = new System.Drawing.Point(199, 44);
+            this.Tab1ImageOfPlanet.MinimumSize = new System.Drawing.Size(20, 20);
+            this.Tab1ImageOfPlanet.Name = "Tab1ImageOfPlanet";
+            this.Tab1ImageOfPlanet.ScrollBarsEnabled = false;
+            this.Tab1ImageOfPlanet.Size = new System.Drawing.Size(227, 120);
+            this.Tab1ImageOfPlanet.TabIndex = 3;
+            this.Tab1ImageOfPlanet.Visible = false;
             // 
             // Tab1ShowSpecies
             // 
@@ -208,6 +249,14 @@ namespace No_Mans_Sky_Planetbase {
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.WebBrowser Tab1ImageOfPlanet;
+
+        private System.Windows.Forms.Label Tab1DescriptionLabel;
+
+        private System.Windows.Forms.Label Tab1SystemInfoLabel;
+
+        private System.Windows.Forms.WebBrowser webBrowser1;
+
         private System.Windows.Forms.PictureBox Tab1ShowSpecies;
 
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -224,7 +273,7 @@ namespace No_Mans_Sky_Planetbase {
         private System.Windows.Forms.Label Tab1LabelGalaxy;
 
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Tab1PlanetNameLabel;
 
         private System.Windows.Forms.Panel SystemInspector;
 

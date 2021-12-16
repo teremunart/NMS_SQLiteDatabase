@@ -122,12 +122,8 @@ namespace No_Mans_Sky_Planetbase {
 
         private System.Windows.Forms.ListBox SearchBySpecies;
 
-        private System.Windows.Forms.Label SearchTitle;
-        private System.Windows.Forms.WebBrowser webBrowser1;
 
         private System.Windows.Forms.ListBox PlanetList;
-        private System.Windows.Forms.Label label1;
-
         #endregion
     }
 }
