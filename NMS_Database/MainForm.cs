@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace NMS_Database {
     public partial class MainForm : Form {
+        public PictureBox[] portalBar = new PictureBox[12];
+        
         public MainForm() {
             InitializeComponent();
             
@@ -21,6 +23,19 @@ namespace NMS_Database {
             Tab1GalaxyList.SelectedIndex = 1;
             int euclidTemp = Tab1GalaxyList.SelectedIndex;
             ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyID={euclidTemp};");
+            //Fill PictureBox Array
+            portalBar[0] = portal_1;
+            portalBar[1] = portal_2;
+            portalBar[2] = portal_3;
+            portalBar[3] = portal_4;
+            portalBar[4] = portal_5;
+            portalBar[5] = portal_6;
+            portalBar[6] = portal_7;
+            portalBar[7] = portal_8;
+            portalBar[8] = portal_9;
+            portalBar[9] = portal_10;
+            portalBar[10] = portal_11;
+            portalBar[11] = portal_12;
         }
         
         //FUNCTIONS
@@ -47,7 +62,7 @@ namespace NMS_Database {
         private SQLiteDataReader GetDatabase(string sql) {
             SQLiteDataReader reader = null;
             
-            SQLiteConnection connection = new SQLiteConnection(new Utils().CONNECTIONSTRING); 
+            SQLiteConnection connection = new SQLiteConnection(new Utils().Connectionstring); 
             connection.Open();
             
             SQLiteCommand command = new SQLiteCommand(sql, connection);
@@ -57,6 +72,7 @@ namespace NMS_Database {
 
             return reader;
         }
+        
 
         // EVENTS TAB1
         private void Tab1GalaxyList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -67,25 +83,46 @@ namespace NMS_Database {
             Tab1SelectedSystemLabel.Text = Tab1SystemList.SelectedItem.ToString().ToUpper();
             Tab1PlanetList.Items.Clear();
 
-            SQLiteDataReader reader = GetDatabase($"SELECT SpeciesType FROM NMS_System WHERE SystemName=\"{Tab1SystemList.SelectedItem}\";");
-            string species = null;
-
+            SQLiteDataReader reader = GetDatabase($"SELECT * FROM NMS_System WHERE SystemName=\"{Tab1SystemList.SelectedItem}\";");
+            SystemData data = new SystemData();
+            
             if(reader != null)
-                while (reader.Read())
-                    species = reader.GetString(0).ToLower();
+                while (reader.Read()) {
+                    data.SystemId    = reader.GetInt32(0);
+                    data.SystemName  = reader.GetString(1);
+                    data.GalaxyId    = reader.GetInt32(2);
+                    data.PlanetCount = reader.GetInt32(3);
+                    data.Species     = reader.GetString(4);
+                    data.Economy     = reader.GetString(5);
+                    data.Conflict    = reader.GetString(6);
+                    data.MoonCount   = reader.GetInt32(7);
+                    data.Coords      = reader.GetString(8);
+                }
             reader?.Close();
 
-            switch(species) {
-                
-                case "gek":    Tab1ShowSpecies.BackgroundImage = Properties.Resources.sys_gek;  break;
-                case "vykeen": Tab1ShowSpecies.BackgroundImage = Properties.Resources.sys_vykeen; break;
-                case "korvax": Tab1ShowSpecies.BackgroundImage = Properties.Resources.sys_korvax; break;
-                default: Tab1ShowSpecies.BackgroundImage = Properties.Resources.sys_empty; break;
+            // Set Species
+            Tab1ShowSpecies.BackgroundImage = data.Species.ToLower() switch {
+                "gek"    => Properties.Resources.sys_gek,
+                "vykeen" => Properties.Resources.sys_vykeen,
+                "korvax" => Properties.Resources.sys_korvax,
+                _        => Properties.Resources.sys_empty
+            };
+
+            // Set Glyps
+            Utils u = new Utils();
+            int counter = 0;
+            char[] glyps = new char[12];
+            string portalAddress = u.GalacticToPortal(data.Coords);
+            foreach (char g in portalAddress) {
+                glyps[counter] = g;
+                counter++;
             }
+            u.ChangeGlyphs(portalBar, glyps);
             
+            // Update Infos
             ListFiller("t1_planet", $"SELECT DISTINCT PlanetName FROM Planet, NMS_System WHERE Planet.SystemID=NMS_System.SystemID AND SystemName=\"{Tab1SystemList.SelectedItem}\";");
         }
-
+        
         private void Tab1PlanetList_SelectedIndexChanged(object sender, EventArgs e) {
             SQLiteDataReader reader = GetDatabase($"SELECT * FROM Planet WHERE PlanetName=\"{Tab1PlanetList.SelectedItem}\";");
             
@@ -135,6 +172,7 @@ public class PlanetaryData {
 public class SystemData {
     public    int SystemId          { get; set; }
     public string SystemName        { get; set; }
+    public string Coords            { get; set; }
     public    int GalaxyId          { get; set; }
     public    int PlanetCount       { get; set; }
     public    int MoonCount         { get; set; }

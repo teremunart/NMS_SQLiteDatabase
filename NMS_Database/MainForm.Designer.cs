@@ -33,6 +33,18 @@ namespace NMS_Database {
             this.Tab1LabelGalaxy = new System.Windows.Forms.Label();
             this.Tab1GalaxyList = new System.Windows.Forms.ListBox();
             this.SystemInspector = new System.Windows.Forms.Panel();
+            this.portal_1 = new System.Windows.Forms.PictureBox();
+            this.portal_2 = new System.Windows.Forms.PictureBox();
+            this.portal_3 = new System.Windows.Forms.PictureBox();
+            this.portal_4 = new System.Windows.Forms.PictureBox();
+            this.portal_5 = new System.Windows.Forms.PictureBox();
+            this.portal_6 = new System.Windows.Forms.PictureBox();
+            this.portal_7 = new System.Windows.Forms.PictureBox();
+            this.portal_8 = new System.Windows.Forms.PictureBox();
+            this.portal_9 = new System.Windows.Forms.PictureBox();
+            this.portal_10 = new System.Windows.Forms.PictureBox();
+            this.portal_11 = new System.Windows.Forms.PictureBox();
+            this.portal_12 = new System.Windows.Forms.PictureBox();
             this.Tab1ImageOfPlanet = new System.Windows.Forms.PictureBox();
             this.Tab1DescriptionLabel = new System.Windows.Forms.Label();
             this.Tab1PlanetNameLabel = new System.Windows.Forms.Label();
@@ -44,6 +56,18 @@ namespace NMS_Database {
             this.tabpanel.SuspendLayout();
             this.inspectsystem.SuspendLayout();
             this.SystemInspector.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ImageOfPlanet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).BeginInit();
             this.SuspendLayout();
@@ -133,6 +157,18 @@ namespace NMS_Database {
             // SystemInspector
             // 
             this.SystemInspector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SystemInspector.Controls.Add(this.portal_1);
+            this.SystemInspector.Controls.Add(this.portal_2);
+            this.SystemInspector.Controls.Add(this.portal_3);
+            this.SystemInspector.Controls.Add(this.portal_4);
+            this.SystemInspector.Controls.Add(this.portal_5);
+            this.SystemInspector.Controls.Add(this.portal_6);
+            this.SystemInspector.Controls.Add(this.portal_7);
+            this.SystemInspector.Controls.Add(this.portal_8);
+            this.SystemInspector.Controls.Add(this.portal_9);
+            this.SystemInspector.Controls.Add(this.portal_10);
+            this.SystemInspector.Controls.Add(this.portal_11);
+            this.SystemInspector.Controls.Add(this.portal_12);
             this.SystemInspector.Controls.Add(this.Tab1ImageOfPlanet);
             this.SystemInspector.Controls.Add(this.Tab1DescriptionLabel);
             this.SystemInspector.Controls.Add(this.Tab1PlanetNameLabel);
@@ -145,6 +181,114 @@ namespace NMS_Database {
             this.SystemInspector.Name = "SystemInspector";
             this.SystemInspector.Size = new System.Drawing.Size(646, 460);
             this.SystemInspector.TabIndex = 0;
+            // 
+            // portal_1
+            // 
+            this.portal_1.Location = new System.Drawing.Point(5, 432);
+            this.portal_1.Name = "portal_1";
+            this.portal_1.Size = new System.Drawing.Size(25, 25);
+            this.portal_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_1.TabIndex = 19;
+            this.portal_1.TabStop = false;
+            // 
+            // portal_2
+            // 
+            this.portal_2.Location = new System.Drawing.Point(30, 432);
+            this.portal_2.Name = "portal_2";
+            this.portal_2.Size = new System.Drawing.Size(25, 25);
+            this.portal_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_2.TabIndex = 18;
+            this.portal_2.TabStop = false;
+            // 
+            // portal_3
+            // 
+            this.portal_3.Location = new System.Drawing.Point(55, 432);
+            this.portal_3.Name = "portal_3";
+            this.portal_3.Size = new System.Drawing.Size(25, 25);
+            this.portal_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_3.TabIndex = 17;
+            this.portal_3.TabStop = false;
+            // 
+            // portal_4
+            // 
+            this.portal_4.Location = new System.Drawing.Point(80, 432);
+            this.portal_4.Name = "portal_4";
+            this.portal_4.Size = new System.Drawing.Size(25, 25);
+            this.portal_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_4.TabIndex = 16;
+            this.portal_4.TabStop = false;
+            // 
+            // portal_5
+            // 
+            this.portal_5.Location = new System.Drawing.Point(105, 432);
+            this.portal_5.Name = "portal_5";
+            this.portal_5.Size = new System.Drawing.Size(25, 25);
+            this.portal_5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_5.TabIndex = 15;
+            this.portal_5.TabStop = false;
+            // 
+            // portal_6
+            // 
+            this.portal_6.Location = new System.Drawing.Point(130, 432);
+            this.portal_6.Name = "portal_6";
+            this.portal_6.Size = new System.Drawing.Size(25, 25);
+            this.portal_6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_6.TabIndex = 14;
+            this.portal_6.TabStop = false;
+            // 
+            // portal_7
+            // 
+            this.portal_7.Location = new System.Drawing.Point(155, 432);
+            this.portal_7.Name = "portal_7";
+            this.portal_7.Size = new System.Drawing.Size(25, 25);
+            this.portal_7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_7.TabIndex = 13;
+            this.portal_7.TabStop = false;
+            // 
+            // portal_8
+            // 
+            this.portal_8.Location = new System.Drawing.Point(180, 432);
+            this.portal_8.Name = "portal_8";
+            this.portal_8.Size = new System.Drawing.Size(25, 25);
+            this.portal_8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_8.TabIndex = 12;
+            this.portal_8.TabStop = false;
+            // 
+            // portal_9
+            // 
+            this.portal_9.Location = new System.Drawing.Point(205, 432);
+            this.portal_9.Name = "portal_9";
+            this.portal_9.Size = new System.Drawing.Size(25, 25);
+            this.portal_9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_9.TabIndex = 11;
+            this.portal_9.TabStop = false;
+            // 
+            // portal_10
+            // 
+            this.portal_10.Location = new System.Drawing.Point(230, 432);
+            this.portal_10.Name = "portal_10";
+            this.portal_10.Size = new System.Drawing.Size(25, 25);
+            this.portal_10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_10.TabIndex = 10;
+            this.portal_10.TabStop = false;
+            // 
+            // portal_11
+            // 
+            this.portal_11.Location = new System.Drawing.Point(255, 432);
+            this.portal_11.Name = "portal_11";
+            this.portal_11.Size = new System.Drawing.Size(25, 25);
+            this.portal_11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_11.TabIndex = 9;
+            this.portal_11.TabStop = false;
+            // 
+            // portal_12
+            // 
+            this.portal_12.Location = new System.Drawing.Point(280, 432);
+            this.portal_12.Name = "portal_12";
+            this.portal_12.Size = new System.Drawing.Size(25, 25);
+            this.portal_12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.portal_12.TabIndex = 8;
+            this.portal_12.TabStop = false;
             // 
             // Tab1ImageOfPlanet
             // 
@@ -212,7 +356,7 @@ namespace NMS_Database {
             this.Tab1SelectedSystemLabel.Location = new System.Drawing.Point(12, 11);
             this.Tab1SelectedSystemLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Tab1SelectedSystemLabel.Name = "Tab1SelectedSystemLabel";
-            this.Tab1SelectedSystemLabel.Size = new System.Drawing.Size(299, 30);
+            this.Tab1SelectedSystemLabel.Size = new System.Drawing.Size(163, 30);
             this.Tab1SelectedSystemLabel.TabIndex = 0;
             this.Tab1SelectedSystemLabel.Text = "SELECT A SYSTEM";
             // 
@@ -222,7 +366,7 @@ namespace NMS_Database {
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.tabPage2.Size = new System.Drawing.Size(827, 544);
+            this.tabPage2.Size = new System.Drawing.Size(827, 472);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -248,15 +392,39 @@ namespace NMS_Database {
             this.tabpanel.ResumeLayout(false);
             this.inspectsystem.ResumeLayout(false);
             this.SystemInspector.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.portal_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.portal_12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ImageOfPlanet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).EndInit();
             this.ResumeLayout(false);
         }
 
+        // TAB 1
+        private System.Windows.Forms.PictureBox portal_1;
+        private System.Windows.Forms.PictureBox portal_2;
+        private System.Windows.Forms.PictureBox portal_3;
+        private System.Windows.Forms.PictureBox portal_4;
+        private System.Windows.Forms.PictureBox portal_5;
+        private System.Windows.Forms.PictureBox portal_6;
+        private System.Windows.Forms.PictureBox portal_7;
+        private System.Windows.Forms.PictureBox portal_8;
+        private System.Windows.Forms.PictureBox portal_9;
+        private System.Windows.Forms.PictureBox portal_10;
+        private System.Windows.Forms.PictureBox portal_11;
+        private System.Windows.Forms.PictureBox portal_12;
+        
         private System.Windows.Forms.PictureBox Tab1ImageOfPlanet;
-
-        private System.Windows.Forms.PictureBox False;
-
+        
         private System.Windows.Forms.Label Tab1DescriptionLabel;
 
         private System.Windows.Forms.Label Tab1SystemInfoLabel;
