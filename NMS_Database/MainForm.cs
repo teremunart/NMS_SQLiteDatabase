@@ -4,7 +4,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
 
-// TODO: Add Moon & Planet count
 // TODO: Add Color Translator for Galaxy (might be useful for design)
 // TODO: Add all the other tabs
 
@@ -107,6 +106,13 @@ namespace NMS_Database {
                     _        => Properties.Resources.sys_empty
                 };
 
+                // Set System Info (Moon Count etc.)
+                string text = $"Planets: {data.PlanetCount}\n" +
+                           $"Moons: {data.MoonCount}\n" +
+                           $"Conflict: {data.Conflict}\n" +
+                           $"Econmy: {data.Economy}\n";
+                Tab1SystemInfoLabel.Text = text;
+                
                 // Set Glyps
                 Utils u = new Utils();
                 int counter = 0;
