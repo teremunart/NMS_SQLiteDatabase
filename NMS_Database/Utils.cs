@@ -85,5 +85,23 @@ namespace NMS_Database {
                 imgGlyph[i].Image = GlyphsTranslator(portalAddress[i]);
             }
         }
+
+        public string GalaxyColorTranslator(string color) {
+            return color switch {
+                "N/A"           => "#000000", 
+                "White"         => "#FFFFFF",
+                "Deep Pink"     => "#FF1493",
+                "Medium Orchid" => "#ba55d3",
+                "Violet"        => "#ee82ee",
+                "Light Blue"    => "#add8e6",
+                "Turquoise"     => "#40e0d0 ",
+                "Green"         => "#90ee90",
+                "Lime Green"    => "#32cd32",
+                "Yellow"        => "#FFFF00",
+                "Orange"        => "#ffa500",
+                "Indigo"        => "#8A2BE2",
+                _               => "#000000"
+            };
+        }
     }
 }
