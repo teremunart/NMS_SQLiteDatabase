@@ -53,6 +53,8 @@ namespace NMS_Database {
             this.Tab1PlanetList = new System.Windows.Forms.ListBox();
             this.Tab1SelectedSystemLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabpanel.SuspendLayout();
             this.inspectsystem.SuspendLayout();
             this.SystemInspector.SuspendLayout();
@@ -77,6 +79,8 @@ namespace NMS_Database {
             this.tabpanel.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabpanel.Controls.Add(this.inspectsystem);
             this.tabpanel.Controls.Add(this.tabPage2);
+            this.tabpanel.Controls.Add(this.tabPage1);
+            this.tabpanel.Controls.Add(this.tabPage3);
             this.tabpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabpanel.HotTrack = true;
             this.tabpanel.Location = new System.Drawing.Point(0, 0);
@@ -362,14 +366,34 @@ namespace NMS_Database {
             // 
             // tabPage2
             // 
+            this.tabPage2.BackgroundImage = global::NMS_Database.Properties.Resources.nms_bg_1;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage2.Size = new System.Drawing.Size(827, 472);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Add Planet";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(827, 472);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Add System";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(827, 472);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "Testing Stuff";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -408,6 +432,9 @@ namespace NMS_Database {
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage3;
 
         // TAB 1
         private System.Windows.Forms.PictureBox portal_1;
