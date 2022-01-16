@@ -73,7 +73,21 @@ namespace NMS_Database {
 
         // EVENTS TAB1
         private void Tab1GalaxyList_SelectedIndexChanged(object sender, EventArgs e) {
-            ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyID=\"{Tab1GalaxyList.SelectedIndex}\";");        
+            //Add Function to update Systems because with the search tool it does not work anymore.
+            //Added function to support the searchbar
+
+            string test = Tab1GalaxyList.SelectedItem.ToString();
+            
+            try {
+                string sql = $"SELECT GalaxyID, GalaxyName FROM Galaxy WHERE GalaxyName='{test}'";
+                SQLiteDataReader reader = GetDatabase(sql);
+            
+                int selectedGalaxyId = reader.GetInt32(0);
+                ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyName=\"{selectedGalaxyId}\";");
+            }
+            catch (Exception exception) {
+                //ignore
+            }
         }
 
         private void Tab1SystemList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -165,6 +179,20 @@ namespace NMS_Database {
                 reader?.Close();
             } catch (Exception ex) {
               //nothing  
+            }
+        }
+
+        // This is the SearchGalaxyBox
+        private void richTextBox1_TextChanged(object sender, EventArgs e) {
+            try {
+                string search = SearchGalaxyBox.Text;
+                if(search != "")
+                    ListFiller("t1_galaxy", $"SELECT GalaxyName FROM Galaxy WHERE GalaxyName LIKE '%{SearchGalaxyBox.Text}%'");
+                else
+                    ListFiller("t1_galaxy", $"SELECT GalaxyName FROM Galaxy");
+            }
+            catch (Exception exception) {
+                // ignored
             }
         }
     }
