@@ -94,7 +94,7 @@ namespace NMS_Database {
                 "Medium Orchid" => "#ba55d3",
                 "Violet"        => "#ee82ee",
                 "Light Blue"    => "#add8e6",
-                "Turquoise"     => "#40e0d0 ",
+                "Turquoise"     => "#40e0d0",
                 "Green"         => "#90ee90",
                 "Lime Green"    => "#32cd32",
                 "Yellow"        => "#FFFF00",
