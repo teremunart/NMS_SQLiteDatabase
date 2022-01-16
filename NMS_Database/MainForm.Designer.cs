@@ -28,6 +28,7 @@ namespace NMS_Database {
         private void InitializeComponent() {
             this.tabpanel = new System.Windows.Forms.TabControl();
             this.inspectsystem = new System.Windows.Forms.TabPage();
+            this.SearchGalaxyBox = new System.Windows.Forms.RichTextBox();
             this.Tab1LabelSystem = new System.Windows.Forms.Label();
             this.Tab1SystemList = new System.Windows.Forms.ListBox();
             this.Tab1LabelGalaxy = new System.Windows.Forms.Label();
@@ -97,6 +98,7 @@ namespace NMS_Database {
             this.inspectsystem.BackColor = System.Drawing.Color.Black;
             this.inspectsystem.BackgroundImage = global::NMS_Database.Properties.Resources.nms_bg_1;
             this.inspectsystem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inspectsystem.Controls.Add(this.SearchGalaxyBox);
             this.inspectsystem.Controls.Add(this.Tab1LabelSystem);
             this.inspectsystem.Controls.Add(this.Tab1SystemList);
             this.inspectsystem.Controls.Add(this.Tab1LabelGalaxy);
@@ -109,6 +111,19 @@ namespace NMS_Database {
             this.inspectsystem.Size = new System.Drawing.Size(827, 472);
             this.inspectsystem.TabIndex = 0;
             this.inspectsystem.Text = "Inspect System";
+            // 
+            // SearchGalaxyBox
+            // 
+            this.SearchGalaxyBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SearchGalaxyBox.Location = new System.Drawing.Point(6, 45);
+            this.SearchGalaxyBox.MaxLength = 256;
+            this.SearchGalaxyBox.Multiline = false;
+            this.SearchGalaxyBox.Name = "SearchGalaxyBox";
+            this.SearchGalaxyBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.SearchGalaxyBox.Size = new System.Drawing.Size(142, 22);
+            this.SearchGalaxyBox.TabIndex = 6;
+            this.SearchGalaxyBox.Text = "";
+            this.SearchGalaxyBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Tab1LabelSystem
             // 
@@ -151,7 +166,7 @@ namespace NMS_Database {
             this.Tab1GalaxyList.Font = new System.Drawing.Font("NMS Futura Pro Book", 10F);
             this.Tab1GalaxyList.FormattingEnabled = true;
             this.Tab1GalaxyList.ItemHeight = 17;
-            this.Tab1GalaxyList.Location = new System.Drawing.Point(6, 50);
+            this.Tab1GalaxyList.Location = new System.Drawing.Point(6, 67);
             this.Tab1GalaxyList.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Tab1GalaxyList.Name = "Tab1GalaxyList";
             this.Tab1GalaxyList.Size = new System.Drawing.Size(142, 136);
@@ -432,6 +447,10 @@ namespace NMS_Database {
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.RichTextBox SearchGalaxyBox;
+
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
