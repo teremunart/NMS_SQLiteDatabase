@@ -1,13 +1,28 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
 namespace NMS_Database {
     public class Utils {
-        internal readonly string Connectionstring = @"Data Source=" + Path.GetFullPath(@"..\..\database\database.db") + "; Version = 3;";
+        private readonly string _connectionstring = @"Data Source=" + Path.GetFullPath(@"..\..\database\database.db") + "; Version = 3;";
 
+        public SQLiteDataReader GetDatabase(string sql) {
+            SQLiteDataReader reader = null;
+            
+            SQLiteConnection connection = new SQLiteConnection(_connectionstring); 
+            connection.Open();
+            
+            SQLiteCommand command = new SQLiteCommand(sql, connection);
+            SQLiteDataReader rdr = command.ExecuteReader();
+            
+            if (rdr.HasRows) reader = rdr;
+
+            return reader;
+        }
+        
         public Bitmap GlyphsTranslator(char glyph) {
             return glyph switch {
                 '0' => Properties.Resources._0,
