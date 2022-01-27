@@ -34,6 +34,7 @@ namespace NMS_Database {
             this.Tab1LabelGalaxy = new System.Windows.Forms.Label();
             this.Tab1GalaxyList = new System.Windows.Forms.ListBox();
             this.SystemInspector = new System.Windows.Forms.Panel();
+            this.testDataGridView = new System.Windows.Forms.DataGridView();
             this.portal_1 = new System.Windows.Forms.PictureBox();
             this.portal_2 = new System.Windows.Forms.PictureBox();
             this.portal_3 = new System.Windows.Forms.PictureBox();
@@ -59,6 +60,7 @@ namespace NMS_Database {
             this.tabpanel.SuspendLayout();
             this.inspectsystem.SuspendLayout();
             this.SystemInspector.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_3)).BeginInit();
@@ -176,6 +178,7 @@ namespace NMS_Database {
             // SystemInspector
             // 
             this.SystemInspector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SystemInspector.Controls.Add(this.testDataGridView);
             this.SystemInspector.Controls.Add(this.portal_1);
             this.SystemInspector.Controls.Add(this.portal_2);
             this.SystemInspector.Controls.Add(this.portal_3);
@@ -200,6 +203,14 @@ namespace NMS_Database {
             this.SystemInspector.Name = "SystemInspector";
             this.SystemInspector.Size = new System.Drawing.Size(646, 460);
             this.SystemInspector.TabIndex = 0;
+            // 
+            // testDataGridView
+            // 
+            this.testDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.testDataGridView.Location = new System.Drawing.Point(412, 39);
+            this.testDataGridView.Name = "testDataGridView";
+            this.testDataGridView.Size = new System.Drawing.Size(217, 175);
+            this.testDataGridView.TabIndex = 20;
             // 
             // portal_1
             // 
@@ -431,6 +442,7 @@ namespace NMS_Database {
             this.tabpanel.ResumeLayout(false);
             this.inspectsystem.ResumeLayout(false);
             this.SystemInspector.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.testDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portal_3)).EndInit();
@@ -447,6 +459,10 @@ namespace NMS_Database {
             ((System.ComponentModel.ISupportInitialize)(this.Tab1ShowSpecies)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.DataGridView testDataGridView;
+
+        private System.Windows.Forms.DataGridView dataGridView1;
 
         private System.Windows.Forms.RichTextBox SearchGalaxyBox;
 

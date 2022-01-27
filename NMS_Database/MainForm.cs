@@ -3,18 +3,22 @@ using System.Data.SQLite;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Windows.Forms;
+using Dapper;
 
 // TODO: Add Color Translator for Galaxy (might be useful for design)
 // TODO: Add all the other tabs
 
 namespace NMS_Database {
     public partial class MainForm : Form {
+        private readonly Utils _utilClass;
         private readonly PictureBox[] _portalBar = new PictureBox[12];
         
         public MainForm() {
             InitializeComponent();
+            _utilClass = new Utils();
             
             SystemInspector.BackColor = ColorTranslator.FromHtml("#AA101010");
+            testDataGridView.DataSource = Tab1GalaxyList.DataSource;
             
             //FILL LISTSBOX
             ListFiller("t1_galaxy", @"SELECT GalaxyName FROM Galaxy");
@@ -44,7 +48,7 @@ namespace NMS_Database {
                 case "t1_planet": Tab1PlanetList.Items.Clear(); break;
             }
             
-            SQLiteDataReader reader = GetDatabase(sql);
+            SQLiteDataReader reader = _utilClass.GetDatabase(sql);
 
             if(reader != null)
                 while (reader.Read())
@@ -57,20 +61,6 @@ namespace NMS_Database {
             reader?.Close();
         }
         
-        private SQLiteDataReader GetDatabase(string sql) {
-            SQLiteDataReader reader = null;
-            
-            SQLiteConnection connection = new SQLiteConnection(new Utils().Connectionstring); 
-            connection.Open();
-            
-            SQLiteCommand command = new SQLiteCommand(sql, connection);
-            SQLiteDataReader rdr = command.ExecuteReader();
-            
-            if (rdr.HasRows) reader = rdr;
-
-            return reader;
-        }
-
         // EVENTS TAB1
         private void Tab1GalaxyList_SelectedIndexChanged(object sender, EventArgs e) {
             //Add Function to update Systems because with the search tool it does not work anymore.
@@ -80,7 +70,7 @@ namespace NMS_Database {
             
             try {
                 string sql = $"SELECT GalaxyID, GalaxyName FROM Galaxy WHERE GalaxyName='{test}'";
-                SQLiteDataReader reader = GetDatabase(sql);
+                SQLiteDataReader reader = _utilClass.GetDatabase(sql);
             
                 int selectedGalaxyId = reader.GetInt32(0);
                 ListFiller("t1_system", $"SELECT DISTINCT SystemName FROM NMS_System, Galaxy WHERE NMS_System.GalaxyName=\"{selectedGalaxyId}\";");
@@ -95,7 +85,7 @@ namespace NMS_Database {
                 Tab1SelectedSystemLabel.Text = Tab1SystemList.SelectedItem.ToString().ToUpper();
                 Tab1PlanetList.Items.Clear();
                 
-                SQLiteDataReader reader = GetDatabase($"SELECT * FROM NMS_System WHERE SystemName=\"{Tab1SystemList.SelectedItem}\";");
+                SQLiteDataReader reader = _utilClass.GetDatabase($"SELECT * FROM NMS_System WHERE SystemName=\"{Tab1SystemList.SelectedItem}\";");
                 SystemData data = new SystemData();
             
                 if(reader != null)
@@ -128,15 +118,14 @@ namespace NMS_Database {
                 Tab1SystemInfoLabel.Text = text;
                 
                 // Set Glyps
-                Utils u = new Utils();
                 int counter = 0;
                 char[] glyps = new char[12];
-                string portalAddress = u.GalacticToPortal(data.Coords);
+                string portalAddress = _utilClass.GalacticToPortal(data.Coords);
                 foreach (char g in portalAddress) {
                     glyps[counter] = g;
                     counter++;
                 }
-                u.ChangeGlyphs(_portalBar, glyps);
+                _utilClass.ChangeGlyphs(_portalBar, glyps);
             
                 // Update Infos
                 ListFiller("t1_planet", $"SELECT DISTINCT PlanetName FROM Planet, NMS_System WHERE Planet.SystemID=NMS_System.SystemID AND SystemName=\"{Tab1SystemList.SelectedItem}\";");
@@ -147,7 +136,7 @@ namespace NMS_Database {
         
         private void Tab1PlanetList_SelectedIndexChanged(object sender, EventArgs e) {
             try {
-                SQLiteDataReader reader = GetDatabase($"SELECT * FROM Planet WHERE PlanetName=\"{Tab1PlanetList.SelectedItem}\";");
+                SQLiteDataReader reader = _utilClass.GetDatabase($"SELECT * FROM Planet WHERE PlanetName=\"{Tab1PlanetList.SelectedItem}\";");
             
                 if(reader != null)
                     while (reader.Read()) {
